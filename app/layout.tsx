@@ -59,6 +59,12 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-background font-sans antialiased">
         <Providers>
+          <a
+            href="#main-content"
+            className="fixed left-4 top-4 z-[9999] -translate-y-20 rounded-none border border-border bg-background px-4 py-2 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-transform focus:translate-y-0 focus:outline-none"
+          >
+            Skip to content
+          </a>
           {children}
           <CookieConsent />
           <AnalyticsProvider />

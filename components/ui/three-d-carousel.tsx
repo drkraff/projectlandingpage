@@ -158,6 +158,9 @@ const Carousel = memo(function Carousel({
                       <img
                         src={item.src}
                         alt={item.name}
+                        width={36}
+                        height={36}
+                        loading="lazy"
                         className="h-full w-full object-cover"
                       />
                     </div>
@@ -277,6 +280,9 @@ export function ThreeDCarousel({ items }: { items: CarouselTestimonial[] }) {
                     <img
                       src={activeItem.src}
                       alt={activeItem.name}
+                      width={44}
+                      height={44}
+                      loading="lazy"
                       className="h-full w-full object-cover"
                     />
                   </div>

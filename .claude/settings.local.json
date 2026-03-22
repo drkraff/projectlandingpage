@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)",
+      "Bash(npx tsc:*)",
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"SaaS landing page productivity tool professional modern\" --design-system --persist -p \"ProjectLandingPage\" -f markdown)",
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"animation accessibility reduced-motion focus keyboard\" --domain ux)",
+      "Bash(npx shadcn@latest add accordion badge card separator input label --yes)",
+      "Bash(npm run:*)",
+      "Bash(find C:Userskraff.claude -type f -name *.json)",
+      "Bash(find C:UserskraffDesktopprojectlandingpage.claude -type f -name *.json)",
+      "Bash(grep:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(python:*)",
+      "Bash(npm install:*)",
+      "Bash(git -C /c/Users/kraff/Desktop/projectlandingpage status)",
+      "Bash(git -C /c/Users/kraff/Desktop/projectlandingpage branch)",
+      "Bash(git:*)",
+      "Bash(vercel env:*)",
+      "Bash(vercel --prod)",
+      "Bash(git -C /c/Users/kraff/Desktop/projectlandingpage add app/\\\\\\(legal\\\\\\)/)"
+    ]
+  }
+}
