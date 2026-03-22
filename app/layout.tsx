@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { DM_Serif_Display, Instrument_Sans } from "next/font/google"
 import { Providers } from "@/components/providers"
 import { CookieConsent } from "@/components/ui/cookie-consent"
+import { AnalyticsProvider } from "@/components/ui/analytics-provider"
 import siteConfig from "@/lib/site.config"
 import "./globals.css"
 
@@ -60,6 +61,7 @@ export default function RootLayout({
         <Providers>
           {children}
           <CookieConsent />
+          <AnalyticsProvider />
         </Providers>
       </body>
     </html>

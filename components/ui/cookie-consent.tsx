@@ -1,28 +1,20 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { inject } from "@vercel/analytics"
 import { Button } from "@/components/ui/button"
 
 const STORAGE_KEY = "cookie-consent"
-
-type ConsentValue = "accepted" | "declined"
 
 export function CookieConsent() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as ConsentValue | null
-    if (stored === "accepted") {
-      inject()
-    } else if (!stored) {
-      setVisible(true)
-    }
+    if (!localStorage.getItem(STORAGE_KEY)) setVisible(true)
   }, [])
 
   function accept() {
     localStorage.setItem(STORAGE_KEY, "accepted")
-    inject()
+    window.dispatchEvent(new Event("cookie-consent-accepted"))
     setVisible(false)
   }
 
