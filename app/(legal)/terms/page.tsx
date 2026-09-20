@@ -4,6 +4,9 @@ import { contactEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
 
 export const metadata: Metadata = {
   title: "Terms of Service",
+  alternates: {
+    canonical: `${siteConfig.seo.canonicalUrl}/terms`,
+  },
 }
 
 const updated = "September 20, 2026"

@@ -31,9 +31,6 @@ export const metadata: Metadata = {
   metadataBase: siteConfig.seo.canonicalUrl
     ? new URL(siteConfig.seo.canonicalUrl)
     : undefined,
-  alternates: {
-    canonical: siteConfig.seo.canonicalUrl,
-  },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -45,7 +42,6 @@ export const metadata: Metadata = {
     siteName: siteConfig.seo.siteName,
     title: siteConfig.seo.title,
     description: siteConfig.seo.description,
-    url: siteConfig.seo.canonicalUrl,
     type: "website",
     images: siteConfig.seo.ogImage
       ? [{ url: siteConfig.seo.ogImage, width: 1200, height: 630, alt: siteConfig.seo.title }]

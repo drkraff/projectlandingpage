@@ -1,8 +1,12 @@
 import type { Metadata } from "next"
+import siteConfig from "@/lib/site.config"
 import { privacyEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
+  alternates: {
+    canonical: `${siteConfig.seo.canonicalUrl}/cookies`,
+  },
 }
 
 const updated = "September 20, 2026"

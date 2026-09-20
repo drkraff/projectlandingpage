@@ -4,6 +4,9 @@ import { privacyEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
+  alternates: {
+    canonical: `${siteConfig.seo.canonicalUrl}/privacy`,
+  },
 }
 
 const updated = "September 20, 2026"
