@@ -19,7 +19,7 @@ export function FaqSection() {
         <Reveal className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-24">
           {/* Left — sticky label column */}
           <div className="flex flex-col gap-5 lg:pt-2">
-            <span className="label-editorial">04 — Questions</span>
+            <span className="label-editorial">03 — Questions</span>
             <h2 className="font-heading text-[clamp(2rem,4vw,3.25rem)] font-normal leading-[0.95] tracking-tight text-foreground">
               {faq.headline}
             </h2>
@@ -28,14 +28,14 @@ export function FaqSection() {
                 {faq.subheadline}
               </p>
             )}
-            {faq.subheadline && (
+            {siteConfig.seo.contactEmail && (
               <p className="mt-auto font-sans text-xs text-muted-foreground">
                 Still have questions?{" "}
                 <Link
-                  href={`mailto:support@${siteConfig.seo.siteName.toLowerCase()}.com`}
+                  href={`mailto:${siteConfig.seo.contactEmail}`}
                   className="text-primary underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:underline"
                 >
-                  Contact support →
+                  Email us →
                 </Link>
               </p>
             )}

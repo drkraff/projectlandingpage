@@ -8,9 +8,12 @@ import { Button } from "@/components/ui/button"
 import siteConfig from "@/lib/site.config"
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+  ...(siteConfig.sections.features.enabled
+    ? [{ label: "How it works", href: "/#features" }]
+    : []),
+  ...(siteConfig.sections.faq.enabled
+    ? [{ label: "FAQ", href: "/#faq" }]
+    : []),
 ]
 
 export function Header() {
@@ -97,7 +100,7 @@ export function Header() {
               size="sm"
               className="hidden cursor-pointer bg-primary text-primary-foreground transition-colors hover:bg-primary/85 md:inline-flex"
             >
-              <Link href="#waitlist">{ctaLabel}</Link>
+              <Link href="/#waitlist">{ctaLabel}</Link>
             </Button>
 
             {/* Hamburger — mobile only */}
@@ -167,7 +170,7 @@ export function Header() {
             asChild
             className="w-full cursor-pointer bg-primary text-primary-foreground transition-colors hover:bg-primary/85"
           >
-            <Link href="#waitlist" onClick={() => setMenuOpen(false)}>
+            <Link href="/#waitlist" onClick={() => setMenuOpen(false)}>
               {ctaLabel}
             </Link>
           </Button>

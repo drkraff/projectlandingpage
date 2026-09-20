@@ -51,13 +51,6 @@ function FloatingPaths({ position }: { position: number }) {
   )
 }
 
-const AVATAR_COLORS = [
-  "oklch(0.58 0.10 60)",
-  "oklch(0.48 0.08 55)",
-  "oklch(0.65 0.09 70)",
-  "oklch(0.52 0.11 50)",
-]
-
 /** Renders headline with the last word in blood-orange italic */
 function EditorialHeadline({ text }: { text: string }) {
   const words = text.trim().split(/\s+/)
@@ -103,7 +96,7 @@ export function HeroSection() {
         {/* Sub-row: copy left / CTAs right */}
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <p
-            className="animate-fade-up max-w-xs font-sans text-base leading-relaxed text-muted-foreground"
+            className="animate-fade-up max-w-lg font-sans text-base leading-relaxed text-muted-foreground"
             style={{ animationDelay: "280ms" }}
           >
             {hero.subheadline}
@@ -138,26 +131,13 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Social proof */}
         {hero.socialProofLine && (
-          <div
-            className="animate-fade-in mt-10 flex items-center gap-5 md:mt-16"
+          <p
+            className="animate-fade-in mt-10 max-w-lg font-sans text-sm leading-relaxed text-muted-foreground md:mt-16"
             style={{ animationDelay: "520ms" }}
           >
-            <div className="flex -space-x-2">
-              {AVATAR_COLORS.map((color, i) => (
-                <div
-                  key={i}
-                  aria-hidden
-                  className="size-7 rounded-full border-2 border-background"
-                  style={{ background: color }}
-                />
-              ))}
-            </div>
-            <span className="font-sans text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              {hero.socialProofLine}
-            </span>
-          </div>
+            {hero.socialProofLine}
+          </p>
         )}
 
         {/* Hero media — pushed below the fold on larger screens */}

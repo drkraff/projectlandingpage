@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "Terms of Service",
 }
 
-const updated = "March 22, 2026"
+const updated = "September 20, 2026"
 const company = siteConfig.seo.siteName
-const email = "legal@acme.com"
+const email = siteConfig.seo.contactEmail ?? "hello@quotesnap.com.au"
 
 export default function TermsPage() {
   return (
