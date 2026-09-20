@@ -40,9 +40,9 @@ export default function CookiesPage() {
             be disabled (e.g. remembering your cookie consent preference).
           </li>
           <li>
-            <strong>Analytics</strong> — Help us understand how visitors interact with the site.
-            We use Vercel Analytics, which collects anonymised page view and event data. These are
-            only set with your consent.
+            <strong>Analytics (optional)</strong> — If you consent, we use Vercel Analytics for
+            anonymised page views and events. No other trackers. These are not set unless you
+            accept.
           </li>
         </ul>
       </Section>

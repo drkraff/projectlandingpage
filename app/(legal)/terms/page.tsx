@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import siteConfig from "@/lib/site.config"
-import { contactEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
+import { contactEmail, privacyEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -83,11 +83,15 @@ export default function TermsPage() {
 
       <Section title="8. Contact">
         <p>
-          Questions about these Terms? {company}’s intended contact address is{" "}
+          Questions about these Terms? {company}’s intended contact addresses are{" "}
           <a href={`mailto:${contactEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
             {contactEmail}
           </a>
-          . We do not publish a street address.
+          {" "}and{" "}
+          <a href={`mailto:${privacyEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
+            {privacyEmail}
+          </a>
+          . Mailboxes are pending DNS. We do not publish a street address.
         </p>
         {EMAILS_PENDING_DNS && <p>{PENDING_DNS_NOTE}</p>}
       </Section>

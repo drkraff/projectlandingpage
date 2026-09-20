@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import siteConfig from "@/lib/site.config"
-import { privacyEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
+import { contactEmail, privacyEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -27,9 +27,20 @@ export default function PrivacyPage() {
 
       <Section title="1. Who we are">
         <p>
-          This policy covers the Vela waitlist website. Vela is a pre-MVP product. This site
+          The controller for this waitlist website is {company}, a pre-MVP product. This site
           collects waitlist interest only — it is not a live quoting product and we do not operate
-          user accounts yet.
+          user accounts yet. We do not publish a street address.
+        </p>
+        <p>
+          Intended contact:{" "}
+          <a href={`mailto:${contactEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
+            {contactEmail}
+          </a>
+          {" "}and{" "}
+          <a href={`mailto:${privacyEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
+            {privacyEmail}
+          </a>
+          . Mailboxes are pending DNS and are not live yet.
         </p>
       </Section>
 
@@ -54,9 +65,10 @@ export default function PrivacyPage() {
 
       <Section title="4. Sharing your information">
         <p>
-          We do not sell your personal data. Waitlist emails are stored with our database provider
-          (Supabase) so we can send the one “ready to try” message. If you accept analytics cookies,
-          Vercel processes anonymised usage data. We may disclose information if required by law.
+          We do not sell your personal data. This site is hosted by Vercel. Waitlist emails are
+          stored with our database provider (Supabase) so we can send the one “ready to try”
+          message. Vercel and Supabase act as processors. If you accept analytics cookies, Vercel
+          also processes anonymised usage data. We may disclose information if required by law.
         </p>
       </Section>
 
@@ -73,8 +85,8 @@ export default function PrivacyPage() {
 
       <Section title="6. Data retention">
         <p>
-          We keep your email until we notify you that Vela is ready to try, you ask us to delete it,
-          or the waitlist is closed — whichever comes first.
+          We keep your email until you ask us to remove it, or the waitlist is closed. We may
+          refine this later.
         </p>
       </Section>
 
@@ -103,11 +115,15 @@ export default function PrivacyPage() {
 
       <Section title="10. Contact">
         <p>
-          Questions about this policy? {company}’s intended privacy address is{" "}
+          Questions about this policy? Write to{" "}
           <a href={`mailto:${privacyEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
             {privacyEmail}
           </a>
-          .
+          {" "}or{" "}
+          <a href={`mailto:${contactEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
+            {contactEmail}
+          </a>
+          . No street address.
         </p>
         {EMAILS_PENDING_DNS && <p>{PENDING_DNS_NOTE}</p>}
       </Section>
