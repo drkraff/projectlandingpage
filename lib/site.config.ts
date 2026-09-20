@@ -73,6 +73,7 @@ const siteConfig: SiteConfig = {
       subheadline:
         "A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email — so you’re not retyping after tools-down.",
       primaryCta: { label: "Join the waitlist", href: "/#waitlist" },
+      // Audience line under the headline (not a second CTA).
       secondaryCta: { label: "For owner-operators who quote on-site", href: "/#features" },
     },
 

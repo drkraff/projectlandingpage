@@ -62,9 +62,8 @@ export function WaitlistSection() {
         <div aria-hidden className="rule-editorial mb-16" />
 
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end lg:gap-24">
-          {/* Left — editorial CTA headline */}
           <Reveal className="flex flex-col gap-6">
-            <span className="label-editorial">04 — Join</span>
+            <span className="label-editorial">Waitlist</span>
             <h2 className="font-heading text-[clamp(2.5rem,6vw,5.5rem)] font-normal leading-[0.9] tracking-[-0.01em] text-foreground">
               {waitlist.headline.split(".").map((part, i, arr) =>
                 part.trim() ? (
@@ -85,7 +84,7 @@ export function WaitlistSection() {
           {/* Right — form */}
           <Reveal delay={150} className="flex flex-col gap-6">
             {status === "success" ? (
-              <div className="flex items-center gap-4 border border-border p-6">
+              <div className="flex items-center gap-4 border border-border p-6" role="status">
                 <CheckCircle2 className="size-5 shrink-0 text-primary" aria-hidden />
                 <p className="font-sans text-sm font-medium text-foreground">
                   {waitlist.successMessage}
@@ -108,7 +107,8 @@ export function WaitlistSection() {
                     placeholder={waitlist.inputPlaceholder}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="border-border bg-transparent font-sans text-foreground placeholder:text-muted-foreground/40 focus-visible:border-primary focus-visible:ring-0 focus-visible:ring-offset-0"
+                    className="border-border bg-transparent font-sans text-foreground placeholder:text-muted-foreground/40 focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring/50"
+                    aria-invalid={status === "error"}
                     aria-describedby={status === "error" ? "waitlist-error" : undefined}
                   />
                 </div>

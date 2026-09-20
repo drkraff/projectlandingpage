@@ -15,11 +15,9 @@ export function FaqSection() {
   return (
     <section id="faq" className="relative px-6 py-16 md:py-28 md:px-12 lg:px-20">
       <div className="mx-auto max-w-[1400px]">
-        {/* Editorial layout: label + title left, accordion right */}
         <Reveal className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-24">
-          {/* Left — sticky label column */}
           <div className="flex flex-col gap-5 lg:pt-2">
-            <span className="label-editorial">03 — Questions</span>
+            <span className="label-editorial">FAQ</span>
             <h2 className="font-heading text-[clamp(2rem,4vw,3.25rem)] font-normal leading-[0.95] tracking-tight text-foreground">
               {faq.headline}
             </h2>
@@ -35,7 +33,7 @@ export function FaqSection() {
                   href={`mailto:${siteConfig.seo.contactEmail}`}
                   className="text-primary underline-offset-4 transition-colors hover:underline focus-visible:outline-none focus-visible:underline"
                 >
-                  Email us →
+                  Email us
                 </Link>
               </p>
             )}
