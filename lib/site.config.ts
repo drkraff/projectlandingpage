@@ -5,25 +5,28 @@ const siteConfig: SiteConfig = {
   // SEO
   // -------------------------------------------------------------------------
   seo: {
-    siteName: "QuoteSnap",
-    title: "QuoteSnap — Talk the job. Send the quote before you leave.",
-    titleTemplate: "%s | QuoteSnap",
+    siteName: "Vela",
+    title: "Vela — Talk the job. Send the quote before you leave.",
+    titleTemplate: "%s | Vela",
     description:
-      "QuoteSnap turns a voice note from the driveway into a clean contractor quote — SMS, WhatsApp, or email — so you’re not retyping tonight.",
+      "Turn a voice note from the driveway into a clean contractor quote — send by SMS, WhatsApp, or email. Pre-MVP waitlist.",
     keywords: [
-      "QuoteSnap",
-      "contractor quotes",
+      "Vela",
+      "contractor quote",
       "voice note to quote",
-      "tradie quotes",
+      "on-site estimate",
       "SMS quote",
       "WhatsApp quote",
-      "Australia",
     ],
-    ogImage: "/og-image.svg",
-    canonicalUrl: "https://quotesnap.com.au",
+    ogImage: "/og-image.png",
+    // Public URL until DNS. Do not switch canonical off vercel.app until
+    // the owner buys and points a domain.
+    canonicalUrl: "https://projectlandingpage.vercel.app",
     noIndex: false,
-    contactEmail: "hello@quotesnap.com.au",
-    privacyEmail: "privacy@quotesnap.com.au",
+    // Intended mailboxes. Pending DNS — vela.io is not purchased or pointed.
+    // These addresses are not live; do not assume mail is received.
+    contactEmail: "hello@vela.io",
+    privacyEmail: "privacy@vela.io",
   },
 
   // -------------------------------------------------------------------------
@@ -52,7 +55,7 @@ const siteConfig: SiteConfig = {
     enabled: false,
     headline: "Talk the job. Send the quote before you leave.",
     subheadline:
-      "QuoteSnap turns a voice note from the driveway into a clean contractor quote — SMS, WhatsApp, or email — so you’re not retyping tonight.",
+      "A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email — so you’re not retyping after tools-down.",
     collectEmails: true,
   },
 
@@ -68,7 +71,7 @@ const siteConfig: SiteConfig = {
       badge: "Pre-MVP waitlist",
       headline: "Talk the job. Send the quote before you leave.",
       subheadline:
-        "QuoteSnap turns a voice note from the driveway into a clean contractor quote — SMS, WhatsApp, or email — so you’re not retyping tonight.",
+        "A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email — so you’re not retyping after tools-down.",
       primaryCta: { label: "Join the waitlist", href: "/#waitlist" },
       secondaryCta: { label: "For owner-operators who quote on-site", href: "/#features" },
     },
@@ -84,7 +87,7 @@ const siteConfig: SiteConfig = {
     },
 
     // -----------------------------------------------------------------------
-    // Features — honest capability + the night-after-tools-down pain
+    // Features
     // -----------------------------------------------------------------------
     features: {
       enabled: true,
@@ -95,18 +98,18 @@ const siteConfig: SiteConfig = {
       items: [
         {
           icon: "mic",
-          title: "Voice note",
-          description: "Talk the job from the driveway or the ute — before you leave.",
+          title: "Talk it on site",
+          description: "Capture the job as a voice note while you’re still there.",
         },
         {
           icon: "file-text",
-          title: "Professional quote",
-          description: "QuoteSnap turns that note into a clean contractor quote.",
+          title: "Get a clean quote",
+          description: "Turn that note into a professional quote you can review.",
         },
         {
           icon: "send",
-          title: "Send it",
-          description: "SMS, WhatsApp, or email — so you’re not retyping tonight.",
+          title: "Send before you leave",
+          description: "SMS, WhatsApp, or email — quote in their hand same visit.",
         },
       ],
     },
@@ -131,27 +134,22 @@ const siteConfig: SiteConfig = {
       subheadline: "Pre-MVP. No spin.",
       items: [
         {
-          question: "What is it?",
+          question: "What is Vela?",
           answer:
-            "Voice note → professional quote → send by SMS/WhatsApp/email.",
+            "Voice note → professional quote → send by SMS, WhatsApp, or email.",
         },
         {
           question: "Who’s it for?",
           answer:
-            "Owner-operators and small crews who quote on the job or right after.",
+            "Owner-operators and small crews who quote on-site or right after.",
         },
         {
           question: "Is it live?",
-          answer: "Not yet — pre-MVP waitlist while we finish testing.",
+          answer: "Not yet — this is a pre-MVP waitlist.",
         },
         {
-          question: "Cost?",
-          answer: "Undecided; early access people get first word.",
-        },
-        {
-          question: "AU?",
-          answer:
-            "Built with AU tradies in mind; English-speaking markets next.",
+          question: "What does it cost?",
+          answer: "Undecided. Early access hears first.",
         },
       ],
     },
@@ -165,8 +163,9 @@ const siteConfig: SiteConfig = {
       subheadline: "For owner-operators who quote on-site.",
       inputPlaceholder: "you@email.com",
       submitLabel: "Join the waitlist",
-      successMessage: "You’re on the list. We’ll email when QuoteSnap is ready to try.",
-      privacyNote: "We’ll only use this to tell you when it’s ready. No spam.",
+      successMessage: "You’re on the list. We’ll email when Vela is ready to try.",
+      privacyNote:
+        "Email only. We’ll write when Vela is ready to try — nothing else.",
       supabaseTable: "waitlist",
     },
 
@@ -176,7 +175,7 @@ const siteConfig: SiteConfig = {
     footer: {
       enabled: true,
       brand: {
-        name: "QuoteSnap",
+        name: "Vela",
         tagline: "Talk the job. Send the quote before you leave.",
       },
       linkGroups: [
@@ -195,7 +194,7 @@ const siteConfig: SiteConfig = {
         termsHref: "/terms",
         cookiesHref: "/cookies",
       },
-      copyright: `© ${new Date().getFullYear()} QuoteSnap. All rights reserved.`,
+      copyright: `© ${new Date().getFullYear()} Vela`,
     },
   },
 };

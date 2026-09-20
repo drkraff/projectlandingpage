@@ -1,13 +1,16 @@
 import type { Metadata } from "next"
 import siteConfig from "@/lib/site.config"
+import { privacyEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
+  alternates: {
+    canonical: `${siteConfig.seo.canonicalUrl}/privacy`,
+  },
 }
 
 const updated = "September 20, 2026"
 const company = siteConfig.seo.siteName
-const email = siteConfig.seo.privacyEmail ?? siteConfig.seo.contactEmail ?? "privacy@quotesnap.com.au"
 
 export default function PrivacyPage() {
   return (
@@ -22,39 +25,45 @@ export default function PrivacyPage() {
 
       <div className="rule-editorial my-10" />
 
-      <Section title="1. Information We Collect">
+      <Section title="1. Who we are">
         <p>
-          We collect information you provide directly to us, such as your email address when you
-          join our waitlist or create an account. We also collect usage data automatically when you
-          interact with our services, including pages visited, actions taken, and device information.
+          This policy covers the Vela waitlist website. Vela is a pre-MVP product. This site
+          collects waitlist interest only — it is not a live quoting product and we do not operate
+          user accounts yet.
         </p>
       </Section>
 
-      <Section title="2. How We Use Your Information">
-        <p>We use the information we collect to:</p>
-        <ul>
-          <li>Operate and improve our services</li>
-          <li>Send you product updates and announcements (with your consent)</li>
-          <li>Respond to your questions and support requests</li>
-          <li>Analyse usage patterns to improve the user experience</li>
-          <li>Comply with legal obligations</li>
-        </ul>
-      </Section>
-
-      <Section title="3. Sharing Your Information">
+      <Section title="2. Information we collect">
         <p>
-          We do not sell your personal data. We may share information with trusted third-party
-          service providers who assist us in operating our services (e.g. analytics, email
-          delivery), subject to confidentiality agreements. We may disclose information if required
-          by law or to protect our legal rights.
+          We collect the email address you type into the waitlist form. That is the only personal
+          information we ask for. We do not collect your name, phone number, or street address, and
+          we do not have a public street address to publish.
+        </p>
+        <p>
+          If you consent to analytics cookies, we also receive anonymised usage data (pages viewed
+          and similar events) from Vercel Analytics.
         </p>
       </Section>
 
-      <Section title="4. Cookies">
+      <Section title="3. How we use your information">
         <p>
-          We use cookies and similar technologies to operate our services and, with your consent,
-          to collect analytics data. You can control cookie preferences through our cookie consent
-          banner or your browser settings. See our{" "}
+          Email only. We’ll write when Vela is ready to try — nothing else. We do not use waitlist
+          addresses for unrelated marketing.
+        </p>
+      </Section>
+
+      <Section title="4. Sharing your information">
+        <p>
+          We do not sell your personal data. Waitlist emails are stored with our database provider
+          (Supabase) so we can send the one “ready to try” message. If you accept analytics cookies,
+          Vercel processes anonymised usage data. We may disclose information if required by law.
+        </p>
+      </Section>
+
+      <Section title="5. Cookies">
+        <p>
+          We use cookies and similar technologies to remember your cookie preference and, with your
+          consent, to collect analytics data. See our{" "}
           <a href="/cookies" className="underline underline-offset-2 hover:text-foreground transition-colors">
             Cookie Policy
           </a>{" "}
@@ -62,49 +71,45 @@ export default function PrivacyPage() {
         </p>
       </Section>
 
-      <Section title="5. Data Retention">
+      <Section title="6. Data retention">
         <p>
-          We retain your personal data for as long as necessary to provide our services and comply
-          with legal obligations. You may request deletion of your data at any time by contacting us.
+          We keep your email until we notify you that Vela is ready to try, you ask us to delete it,
+          or the waitlist is closed — whichever comes first.
         </p>
       </Section>
 
-      <Section title="6. Your Rights">
+      <Section title="7. Your rights">
         <p>
           Depending on your location, you may have the right to access, correct, or delete your
-          personal data, restrict or object to its processing, and request data portability. To
-          exercise these rights, contact us at{" "}
-          <a href={`mailto:${email}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
-            {email}
+          personal data. To exercise these rights, contact us at the address below when that mailbox
+          is live.
+        </p>
+      </Section>
+
+      <Section title="8. Security">
+        <p>
+          We take reasonable technical and organisational measures to protect waitlist emails. No
+          method of transmission over the internet is completely secure, and we cannot guarantee
+          absolute security.
+        </p>
+      </Section>
+
+      <Section title="9. Changes to this policy">
+        <p>
+          We may update this policy from time to time. We will post the new policy on this page and
+          update the date above.
+        </p>
+      </Section>
+
+      <Section title="10. Contact">
+        <p>
+          Questions about this policy? {company}’s intended privacy address is{" "}
+          <a href={`mailto:${privacyEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
+            {privacyEmail}
           </a>
           .
         </p>
-      </Section>
-
-      <Section title="7. Security">
-        <p>
-          We take reasonable technical and organisational measures to protect your information
-          against unauthorised access, loss, or misuse. No method of transmission over the internet
-          is completely secure, however, and we cannot guarantee absolute security.
-        </p>
-      </Section>
-
-      <Section title="8. Changes to This Policy">
-        <p>
-          We may update this policy from time to time. We will notify you of significant changes by
-          posting the new policy on this page and updating the date above. Continued use of our
-          services after changes constitutes acceptance.
-        </p>
-      </Section>
-
-      <Section title="9. Contact">
-        <p>
-          Questions about this policy? Contact {company} at{" "}
-          <a href={`mailto:${email}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
-            {email}
-          </a>
-          .
-        </p>
+        {EMAILS_PENDING_DNS && <p>{PENDING_DNS_NOTE}</p>}
       </Section>
     </article>
   )

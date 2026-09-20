@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import siteConfig from "@/lib/site.config"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = siteConfig.seo.canonicalUrl ?? "https://quotesnap.com.au"
+  const base = siteConfig.seo.canonicalUrl ?? "https://projectlandingpage.vercel.app"
 
   return [
     { url: base, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },

@@ -26,7 +26,7 @@ export interface ImageAsset {
 export interface SeoConfig {
   siteName: string;
   title: string;
-  titleTemplate?: string; // e.g. "%s | QuoteSnap"
+  titleTemplate?: string; // e.g. "%s | Vela"
   description: string;
   keywords?: string[];
   ogImage?: string;

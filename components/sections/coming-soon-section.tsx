@@ -34,21 +34,20 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
 
 export function ComingSoonSection() {
   const cs = siteConfig.comingSoon
-  if (!cs.enabled) return null
-
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null)
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(() =>
+    cs.launchDate ? getTimeLeft(cs.launchDate) : null,
+  )
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
   useEffect(() => {
-    if (!cs.launchDate) return
-    setTimeLeft(getTimeLeft(cs.launchDate))
-    const id = setInterval(
-      () => setTimeLeft(getTimeLeft(cs.launchDate!)),
-      1000,
-    )
+    if (!cs.enabled || !cs.launchDate) return
+    const launchDate = cs.launchDate
+    const id = setInterval(() => setTimeLeft(getTimeLeft(launchDate)), 1000)
     return () => clearInterval(id)
-  }, [cs.launchDate])
+  }, [cs.enabled, cs.launchDate])
+
+  if (!cs.enabled) return null
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()

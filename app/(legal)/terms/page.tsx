@@ -1,13 +1,16 @@
 import type { Metadata } from "next"
 import siteConfig from "@/lib/site.config"
+import { contactEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
 
 export const metadata: Metadata = {
   title: "Terms of Service",
+  alternates: {
+    canonical: `${siteConfig.seo.canonicalUrl}/terms`,
+  },
 }
 
 const updated = "September 20, 2026"
 const company = siteConfig.seo.siteName
-const email = siteConfig.seo.contactEmail ?? "hello@quotesnap.com.au"
 
 export default function TermsPage() {
   return (
@@ -22,18 +25,24 @@ export default function TermsPage() {
 
       <div className="rule-editorial my-10" />
 
-      <Section title="1. Acceptance of Terms">
+      <Section title="1. What this site is">
         <p>
-          By accessing or using {company}'s services, you agree to be bound by these Terms of
-          Service. If you do not agree, do not use our services.
+          This website is a pre-MVP waitlist for {company}. It is not a live quoting product. By
+          using this site or joining the waitlist, you agree to these Terms. If you do not agree, do
+          not use the site.
         </p>
       </Section>
 
-      <Section title="2. Use of Services">
+      <Section title="2. Waitlist">
         <p>
-          You may use our services only for lawful purposes and in accordance with these Terms. You
-          agree not to use our services:
+          Joining the waitlist is email-only. We will write when Vela is ready to try — nothing
+          else. Submitting an email does not create an account, a contract for paid services, or a
+          guaranteed launch date or price.
         </p>
+      </Section>
+
+      <Section title="3. Acceptable use">
+        <p>You agree not to use this site:</p>
         <ul>
           <li>In any way that violates applicable laws or regulations</li>
           <li>To transmit unsolicited or unauthorised advertising or promotional material</li>
@@ -42,72 +51,45 @@ export default function TermsPage() {
         </ul>
       </Section>
 
-      <Section title="3. Accounts">
+      <Section title="4. Intellectual property">
         <p>
-          You are responsible for maintaining the confidentiality of your account credentials and
-          for all activities that occur under your account. Notify us immediately at{" "}
-          <a href={`mailto:${email}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
-            {email}
-          </a>{" "}
-          if you suspect unauthorised access.
+          All content, features, and branding on this site are owned by {company} and are protected
+          by applicable intellectual property laws. You may not copy, modify, distribute, or create
+          derivative works without our express written permission.
         </p>
       </Section>
 
-      <Section title="4. Intellectual Property">
+      <Section title="5. Disclaimer of warranties">
         <p>
-          All content, features, and functionality of our services are owned by {company} and are
-          protected by applicable intellectual property laws. You may not copy, modify, distribute,
-          or create derivative works without our express written permission.
+          This waitlist site is provided “as is” and “as available” without warranties of any kind,
+          express or implied. We do not warrant that the site will be uninterrupted or error-free.
         </p>
       </Section>
 
-      <Section title="5. Disclaimer of Warranties">
-        <p>
-          Our services are provided "as is" and "as available" without warranties of any kind,
-          express or implied. We do not warrant that our services will be uninterrupted, error-free,
-          or free of viruses or other harmful components.
-        </p>
-      </Section>
-
-      <Section title="6. Limitation of Liability">
+      <Section title="6. Limitation of liability">
         <p>
           To the fullest extent permitted by law, {company} shall not be liable for any indirect,
           incidental, special, consequential, or punitive damages arising from your use of, or
-          inability to use, our services.
+          inability to use, this site.
         </p>
       </Section>
 
-      <Section title="7. Termination">
+      <Section title="7. Changes">
         <p>
-          We reserve the right to suspend or terminate your access to our services at any time, with
-          or without cause, and with or without notice. Upon termination, your right to use the
-          services ceases immediately.
+          We may modify these Terms at any time by updating this page. Continued use of the site
+          after changes constitutes acceptance of the revised Terms.
         </p>
       </Section>
 
-      <Section title="8. Changes to Terms">
+      <Section title="8. Contact">
         <p>
-          We may modify these Terms at any time. We will notify you of material changes by updating
-          the date above. Continued use of our services after changes constitutes acceptance of the
-          revised Terms.
-        </p>
-      </Section>
-
-      <Section title="9. Governing Law">
-        <p>
-          These Terms are governed by and construed in accordance with applicable law. Any disputes
-          shall be resolved exclusively in the courts of competent jurisdiction.
-        </p>
-      </Section>
-
-      <Section title="10. Contact">
-        <p>
-          Questions about these Terms? Contact us at{" "}
-          <a href={`mailto:${email}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
-            {email}
+          Questions about these Terms? {company}’s intended contact address is{" "}
+          <a href={`mailto:${contactEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
+            {contactEmail}
           </a>
-          .
+          . We do not publish a street address.
         </p>
+        {EMAILS_PENDING_DNS && <p>{PENDING_DNS_NOTE}</p>}
       </Section>
     </article>
   )

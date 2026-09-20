@@ -1,26 +1,40 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useSyncExternalStore } from "react"
 import { Button } from "@/components/ui/button"
 
 const STORAGE_KEY = "cookie-consent"
+const CHANGE_EVENT = "cookie-consent-changed"
+
+function subscribe(onStoreChange: () => void) {
+  window.addEventListener(CHANGE_EVENT, onStoreChange)
+  window.addEventListener("storage", onStoreChange)
+  return () => {
+    window.removeEventListener(CHANGE_EVENT, onStoreChange)
+    window.removeEventListener("storage", onStoreChange)
+  }
+}
+
+function getSnapshot() {
+  return !localStorage.getItem(STORAGE_KEY)
+}
+
+function getServerSnapshot() {
+  return false
+}
 
 export function CookieConsent() {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    if (!localStorage.getItem(STORAGE_KEY)) setVisible(true)
-  }, [])
+  const visible = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 
   function accept() {
     localStorage.setItem(STORAGE_KEY, "accepted")
     window.dispatchEvent(new Event("cookie-consent-accepted"))
-    setVisible(false)
+    window.dispatchEvent(new Event(CHANGE_EVENT))
   }
 
   function decline() {
     localStorage.setItem(STORAGE_KEY, "declined")
-    setVisible(false)
+    window.dispatchEvent(new Event(CHANGE_EVENT))
   }
 
   if (!visible) return null
