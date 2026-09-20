@@ -10,9 +10,9 @@ import type { PricingInterval, PricingPrice, PricingTier } from "@/types/site-co
 
 export function PricingSection() {
   const pricing = siteConfig.sections.pricing
-  if (!pricing.enabled) return null
-
   const [interval, setInterval] = useState<PricingInterval>(pricing.defaultInterval)
+
+  if (!pricing.enabled) return null
 
   const savingsPct = (() => {
     const paidTier = pricing.tiers.find(

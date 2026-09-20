@@ -1,12 +1,11 @@
 import type { Metadata } from "next"
-import siteConfig from "@/lib/site.config"
+import { privacyEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
 }
 
 const updated = "September 20, 2026"
-const email = siteConfig.seo.privacyEmail ?? siteConfig.seo.contactEmail ?? "privacy@quotesnap.com.au"
 
 export default function CookiesPage() {
   return (
@@ -21,7 +20,7 @@ export default function CookiesPage() {
 
       <div className="rule-editorial my-10" />
 
-      <Section title="1. What Are Cookies">
+      <Section title="1. What are cookies">
         <p>
           Cookies are small text files stored on your device when you visit a website. They help
           websites remember your preferences, understand how you use the site, and improve your
@@ -29,8 +28,8 @@ export default function CookiesPage() {
         </p>
       </Section>
 
-      <Section title="2. Cookies We Use">
-        <p>We use the following categories of cookies:</p>
+      <Section title="2. Cookies we use">
+        <p>This waitlist site uses the following categories of cookies:</p>
         <ul>
           <li>
             <strong>Strictly necessary</strong> — Required for the site to function. These cannot
@@ -44,22 +43,22 @@ export default function CookiesPage() {
         </ul>
       </Section>
 
-      <Section title="3. Your Choices">
+      <Section title="3. Your choices">
         <p>
           When you first visit our site, a banner asks for your consent to analytics cookies. You
-          can accept or decline. Your choice is stored in your browser's local storage under the key{" "}
+          can accept or decline. Your choice is stored in your browser’s local storage under the key{" "}
           <code className="rounded-none bg-muted px-1 py-0.5 font-mono text-xs">
             cookie-consent
           </code>
           .
         </p>
         <p>
-          You can change your preference at any time by clearing your browser's local storage for
+          You can change your preference at any time by clearing your browser’s local storage for
           this site, which will cause the banner to reappear on your next visit.
         </p>
       </Section>
 
-      <Section title="4. Third-Party Services">
+      <Section title="4. Third-party services">
         <p>
           We use Vercel Analytics to collect anonymised usage data. Vercel may store cookies or
           similar identifiers on your device. For details, see{" "}
@@ -69,38 +68,38 @@ export default function CookiesPage() {
             rel="noopener noreferrer"
             className="underline underline-offset-2 hover:text-foreground transition-colors"
           >
-            Vercel's Privacy Policy
+            Vercel’s Privacy Policy
           </a>
           .
         </p>
       </Section>
 
-      <Section title="5. Browser Controls">
+      <Section title="5. Browser controls">
         <p>
           Most browsers allow you to refuse or delete cookies through their settings. Note that
           disabling cookies may affect the functionality of some parts of our site.
         </p>
       </Section>
 
-      <Section title="6. Changes to This Policy">
+      <Section title="6. Changes to this policy">
         <p>
           We may update this Cookie Policy from time to time. Changes will be posted on this page
-          with an updated date. Continued use of our site constitutes acceptance of the revised
-          policy.
+          with an updated date.
         </p>
       </Section>
 
       <Section title="7. Contact">
         <p>
-          Questions about our use of cookies? Contact us at{" "}
+          Questions about our use of cookies? Vela’s intended privacy address is{" "}
           <a
-            href={`mailto:${email}`}
+            href={`mailto:${privacyEmail}`}
             className="underline underline-offset-2 hover:text-foreground transition-colors"
           >
-            {email}
+            {privacyEmail}
           </a>
           .
         </p>
+        {EMAILS_PENDING_DNS && <p>{PENDING_DNS_NOTE}</p>}
       </Section>
     </article>
   )

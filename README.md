@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vela
 
-## Getting Started
+Pre-MVP waitlist for **Vela** (pronounced VAY-lah): talk the job, send the quote before you leave.
 
-First, run the development server:
+A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email.
+
+Public URL until DNS: [https://projectlandingpage.vercel.app](https://projectlandingpage.vercel.app)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env.local` and set the public Supabase keys if you want waitlist signups to persist.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Content
 
-## Learn More
+Landing copy, SEO, and section toggles live in `lib/site.config.ts`.
 
-To learn more about Next.js, take a look at the following resources:
+Social proof and pricing stay disabled. No invented traction.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Legal / email
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Intended addresses (pending DNS — not live):
 
-## Deploy on Vercel
+- `hello@vela.io`
+- `privacy@vela.io`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Do not assume `vela.io` is purchased or pointed. Keep the canonical URL on `https://projectlandingpage.vercel.app` until the owner buys and points a domain and mailbox.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Scripts
+
+```bash
+npm run lint
+npm run build
+```

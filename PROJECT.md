@@ -1,26 +1,27 @@
-# ProjectLandingPage
+# Vela
 
 ## Goal
-Config-driven SaaS landing page template.
-One site.config.ts controls all content.
-Deploy a new landing page for any SaaS idea by editing only the config.
+Pre-MVP waitlist landing page for **Vela**.
+
+Talk the job. Send the quote before you leave.
+
+Content is driven by `lib/site.config.ts`. Social proof and pricing stay off until there is real traction and a decided price.
 
 ## Stack
-Next.js 15, TypeScript, Tailwind CSS, shadcn/ui
-Supabase (waitlist), next-themes (dark/light), next-intl (LTR/RTL)
+Next.js, TypeScript, Tailwind CSS, shadcn/ui
+Supabase (waitlist), next-themes (dark/light)
 
-## Sections (all toggleable via config)
-Hero, Social Proof, Features, Pricing, FAQ, Waitlist/CTA, Footer
+## Public URL until DNS
+https://projectlandingpage.vercel.app
 
-## Core features (always on)
-SEO metadata, cookie consent, analytics events,
-dark/light mode toggle, coming-soon/live mode, LTR/RTL support
+Do not switch canonical off this host until a domain and mailbox are purchased and pointed.
+
+## Intended email (pending DNS — not live)
+- hello@vela.io
+- privacy@vela.io
 
 ## Structure
 /app          - routes and pages
 /components   - shared components
 /lib          - site.config.ts + utilities
 /types        - shared types
-
-## Current phase
-Phase 1 — site.config.ts schema + project structure
