@@ -91,7 +91,7 @@ export default function TermsPage() {
           <a href={`mailto:${privacyEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
             {privacyEmail}
           </a>
-          . Mailboxes are pending DNS. We do not publish a street address.
+          . Mailbox pending DNS — not live. We do not publish a street address.
         </p>
         {EMAILS_PENDING_DNS && <p>{PENDING_DNS_NOTE}</p>}
       </Section>

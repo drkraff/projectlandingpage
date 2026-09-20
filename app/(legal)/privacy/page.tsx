@@ -40,7 +40,7 @@ export default function PrivacyPage() {
           <a href={`mailto:${privacyEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
             {privacyEmail}
           </a>
-          . Mailboxes are pending DNS and are not live yet.
+          . Mailbox pending DNS — these addresses are not live yet.
         </p>
       </Section>
 
@@ -123,7 +123,7 @@ export default function PrivacyPage() {
           <a href={`mailto:${contactEmail}`} className="underline underline-offset-2 hover:text-foreground transition-colors">
             {contactEmail}
           </a>
-          . No street address.
+          . Mailbox pending DNS. No street address.
         </p>
         {EMAILS_PENDING_DNS && <p>{PENDING_DNS_NOTE}</p>}
       </Section>
