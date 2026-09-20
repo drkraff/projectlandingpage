@@ -11,6 +11,12 @@ Content is driven by `lib/site.config.ts`. Social proof and pricing stay off unt
 Next.js, TypeScript, Tailwind CSS, shadcn/ui
 Supabase (waitlist), next-themes (dark/light)
 
+## Waitlist
+Public signup uses the anon key only. Apply `docs/supabase-waitlist.sql` so RLS
+allows anon INSERT and nothing else. Duplicate emails (unique violation 23505)
+are treated as success in `/api/waitlist`. Missing/invalid Supabase env returns
+503 without leaking a stack.
+
 ## Public URL until DNS
 https://projectlandingpage.vercel.app
 
