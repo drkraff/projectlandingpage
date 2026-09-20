@@ -6,26 +6,26 @@
   <!-- Brand name -->
   <text
     x="72"
-    y="280"
+    y="250"
     font-family="Georgia, 'Times New Roman', serif"
-    font-size="96"
+    font-size="84"
     font-weight="400"
     fill="#1a1a1a"
     letter-spacing="-3"
-  >Acme</text>
+  >QuoteSnap</text>
   <!-- Tagline -->
   <text
     x="72"
-    y="360"
+    y="330"
     font-family="system-ui, -apple-system, sans-serif"
-    font-size="28"
+    font-size="26"
     font-weight="400"
     fill="#1a1a1a"
-    opacity="0.5"
+    opacity="0.55"
     letter-spacing="0"
-  >The fastest way to build X</text>
+  >Talk the job. Send the quote before you leave.</text>
   <!-- Accent line -->
-  <rect x="72" y="420" width="80" height="2" fill="#E8450A"/>
+  <rect x="72" y="400" width="80" height="2" fill="#E8450A"/>
   <!-- URL label -->
   <text
     x="72"
@@ -36,5 +36,5 @@
     fill="#1a1a1a"
     opacity="0.35"
     letter-spacing="0.5"
-  >acme.com</text>
+  >quotesnap.com.au</text>
 </svg>

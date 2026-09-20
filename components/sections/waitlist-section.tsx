@@ -13,11 +13,12 @@ type FormStatus = "idle" | "loading" | "success" | "error"
 
 export function WaitlistSection() {
   const waitlist = siteConfig.sections.waitlist
-  if (!waitlist.enabled) return null
-
   const [email, setEmail] = useState("")
+  const [website, setWebsite] = useState("")
   const [status, setStatus] = useState<FormStatus>("idle")
   const [errorMsg, setErrorMsg] = useState("")
+
+  if (!waitlist.enabled) return null
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -27,7 +28,7 @@ export function WaitlistSection() {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, website }),
       })
       const data = await res.json() as { error?: string }
       if (!res.ok) {
@@ -38,6 +39,7 @@ export function WaitlistSection() {
       track("waitlist_signup")
       setStatus("success")
       setEmail("")
+      setWebsite("")
     } catch {
       setStatus("error")
       setErrorMsg("Something went wrong. Please try again.")
@@ -62,7 +64,7 @@ export function WaitlistSection() {
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-end lg:gap-24">
           {/* Left — editorial CTA headline */}
           <Reveal className="flex flex-col gap-6">
-            <span className="label-editorial">05 — Join</span>
+            <span className="label-editorial">04 — Join</span>
             <h2 className="font-heading text-[clamp(2.5rem,6vw,5.5rem)] font-normal leading-[0.9] tracking-[-0.01em] text-foreground">
               {waitlist.headline.split(".").map((part, i, arr) =>
                 part.trim() ? (
@@ -90,7 +92,7 @@ export function WaitlistSection() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
+              <form onSubmit={handleSubmit} className="relative flex flex-col gap-4" noValidate>
                 <div className="flex flex-col gap-2">
                   <Label
                     htmlFor="waitlist-email"
@@ -108,6 +110,22 @@ export function WaitlistSection() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="border-border bg-transparent font-sans text-foreground placeholder:text-muted-foreground/40 focus-visible:border-primary focus-visible:ring-0 focus-visible:ring-offset-0"
                     aria-describedby={status === "error" ? "waitlist-error" : undefined}
+                  />
+                </div>
+
+                <div
+                  className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+                  aria-hidden="true"
+                >
+                  <label htmlFor="waitlist-website">Company website</label>
+                  <input
+                    id="waitlist-website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
                   />
                 </div>
 

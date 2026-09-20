@@ -39,7 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: siteConfig.seo.twitterHandle,
+    ...(siteConfig.seo.twitterHandle
+      ? { creator: siteConfig.seo.twitterHandle }
+      : {}),
     images: siteConfig.seo.ogImage ? [siteConfig.seo.ogImage] : undefined,
   },
   robots: siteConfig.seo.noIndex

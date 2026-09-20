@@ -26,13 +26,17 @@ export interface ImageAsset {
 export interface SeoConfig {
   siteName: string;
   title: string;
-  titleTemplate?: string; // e.g. "%s | Acme"
+  titleTemplate?: string; // e.g. "%s | QuoteSnap"
   description: string;
   keywords?: string[];
   ogImage?: string;
   twitterHandle?: string;
   canonicalUrl?: string;
   noIndex?: boolean;
+  /** Public contact address shown on FAQ / general inquiries */
+  contactEmail?: string;
+  /** Privacy / cookies contact; falls back to contactEmail */
+  privacyEmail?: string;
 }
 
 // ---------------------------------------------------------------------------

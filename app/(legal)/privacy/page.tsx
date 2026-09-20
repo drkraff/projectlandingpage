@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
 }
 
-const updated = "March 22, 2026"
+const updated = "September 20, 2026"
 const company = siteConfig.seo.siteName
-const email = "privacy@acme.com"
+const email = siteConfig.seo.privacyEmail ?? siteConfig.seo.contactEmail ?? "privacy@quotesnap.com.au"
 
 export default function PrivacyPage() {
   return (

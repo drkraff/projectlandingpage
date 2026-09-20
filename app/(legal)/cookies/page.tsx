@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   title: "Cookie Policy",
 }
 
-const updated = "March 22, 2026"
-const email = "privacy@acme.com"
+const updated = "September 20, 2026"
+const email = siteConfig.seo.privacyEmail ?? siteConfig.seo.contactEmail ?? "privacy@quotesnap.com.au"
 
 export default function CookiesPage() {
   return (

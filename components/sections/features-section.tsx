@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Reveal } from "@/components/ui/reveal"
 import {
   Zap, Shield, Sliders, BarChart2, Plug, Headphones,
-  Star, Check, ArrowRight, type LucideProps,
+  Star, Check, ArrowRight, Mic, FileText, Send, type LucideProps,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import siteConfig from "@/lib/site.config"
@@ -18,6 +18,9 @@ const ICON_MAP: Record<string, React.ComponentType<LucideProps>> = {
   star: Star,
   check: Check,
   arrow: ArrowRight,
+  mic: Mic,
+  "file-text": FileText,
+  send: Send,
 }
 
 export function FeaturesSection() {
