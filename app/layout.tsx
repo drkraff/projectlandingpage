@@ -73,7 +73,7 @@ export default function RootLayout({
         <Providers>
           <a
             href="#main-content"
-            className="fixed left-4 top-4 z-[9999] -translate-y-20 rounded-none border border-border bg-background px-4 py-2 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-transform focus:translate-y-0 focus:outline-none"
+            className="fixed left-4 top-4 z-[9999] -translate-y-20 rounded-none border border-border bg-background px-4 py-2 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-transform focus:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Skip to content
           </a>

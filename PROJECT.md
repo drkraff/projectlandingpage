@@ -26,8 +26,11 @@ Do not switch canonical off this host until a domain and mailbox are purchased a
 - hello@vela.io
 - privacy@vela.io
 
+Owner setup (Supabase RLS, Vercel Firewall, domain, mailboxes): `docs/OWNER-CHECKLIST.md`
+
 ## Structure
 /app          - routes and pages
 /components   - shared components
 /lib          - site.config.ts + utilities
 /types        - shared types
+/docs         - owner checklist

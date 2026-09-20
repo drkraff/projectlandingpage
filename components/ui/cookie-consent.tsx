@@ -48,7 +48,8 @@ export function CookieConsent() {
     >
       <div className="mx-auto flex max-w-[1400px] flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between md:px-12 lg:px-20">
         <p className="font-sans text-xs leading-relaxed text-muted-foreground">
-          We use cookies to understand how you use our site and to improve your experience.{" "}
+          Essential cookies remember your cookie choice. Optional analytics (Vercel) run only if you
+          accept.{" "}
           <a
             href="/cookies"
             className="underline underline-offset-2 transition-colors hover:text-foreground"

@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import siteConfig from "@/lib/site.config"
-import { privacyEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
+import { contactEmail, privacyEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
@@ -26,9 +26,8 @@ export default function CookiesPage() {
 
       <Section title="1. What are cookies">
         <p>
-          Cookies are small text files stored on your device when you visit a website. They help
-          websites remember your preferences, understand how you use the site, and improve your
-          experience over time.
+          Cookies are small text files stored on your device when you visit a website. This waitlist
+          site only uses the cookies described below — nothing else.
         </p>
       </Section>
 
@@ -40,9 +39,9 @@ export default function CookiesPage() {
             be disabled (e.g. remembering your cookie consent preference).
           </li>
           <li>
-            <strong>Analytics</strong> — Help us understand how visitors interact with the site.
-            We use Vercel Analytics, which collects anonymised page view and event data. These are
-            only set with your consent.
+            <strong>Analytics (optional)</strong> — If you consent, we use Vercel Analytics for
+            anonymised page views and events. No other trackers. These are not set unless you
+            accept.
           </li>
         </ul>
       </Section>
@@ -64,8 +63,9 @@ export default function CookiesPage() {
 
       <Section title="4. Third-party services">
         <p>
-          We use Vercel Analytics to collect anonymised usage data. Vercel may store cookies or
-          similar identifiers on your device. For details, see{" "}
+          If you accept analytics cookies, Vercel Analytics may collect anonymised page views and
+          events. Vercel may store cookies or similar identifiers on your device in that case. If
+          you decline, we do not run that analytics. For details, see{" "}
           <a
             href="https://vercel.com/legal/privacy-policy"
             target="_blank"
@@ -74,7 +74,8 @@ export default function CookiesPage() {
           >
             Vercel’s Privacy Policy
           </a>
-          .
+          . This site is also hosted by Vercel; waitlist emails are stored by Supabase. Both act as
+          processors. No other trackers.
         </p>
       </Section>
 
@@ -94,14 +95,21 @@ export default function CookiesPage() {
 
       <Section title="7. Contact">
         <p>
-          Questions about our use of cookies? Vela’s intended privacy address is{" "}
+          Questions about our use of cookies? Intended addresses (mailbox pending DNS — not live):{" "}
           <a
             href={`mailto:${privacyEmail}`}
             className="underline underline-offset-2 hover:text-foreground transition-colors"
           >
             {privacyEmail}
           </a>
-          .
+          {" "}and{" "}
+          <a
+            href={`mailto:${contactEmail}`}
+            className="underline underline-offset-2 hover:text-foreground transition-colors"
+          >
+            {contactEmail}
+          </a>
+          . No street address.
         </p>
         {EMAILS_PENDING_DNS && <p>{PENDING_DNS_NOTE}</p>}
       </Section>
