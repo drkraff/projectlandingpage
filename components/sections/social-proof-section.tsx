@@ -13,7 +13,6 @@ export function SocialProofSection() {
       <div aria-hidden className="rule-editorial" />
 
       <div className="mx-auto max-w-[1400px]">
-        {/* Editorial label row */}
         {sp.heading && (
           <Reveal className="mt-10 mb-12 flex items-baseline justify-between md:mb-14">
             <span className="label-editorial">{sp.heading}</span>

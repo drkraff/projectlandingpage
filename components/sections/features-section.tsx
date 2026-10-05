@@ -30,10 +30,9 @@ export function FeaturesSection() {
   return (
     <section id="features" className="relative px-6 py-16 md:py-28 md:px-12 lg:px-20">
       <div className="mx-auto max-w-[1400px]">
-        {/* Editorial section header — label + headline side by side */}
         <Reveal className="mb-14 grid gap-8 md:mb-20 md:grid-cols-[auto_1fr] md:items-end md:gap-16">
           <div className="flex flex-col gap-4">
-            <span className="label-editorial">02 — Capabilities</span>
+            <span className="label-editorial">How it works</span>
             <h2 className="font-heading text-[clamp(1.75rem,4.5vw,3.75rem)] font-normal leading-[0.95] tracking-tight text-foreground">
               {features.headline}
             </h2>

@@ -32,6 +32,8 @@ Intended addresses (pending DNS — not live):
 
 Do not assume `vela.io` is purchased or pointed. Keep the canonical URL on `https://projectlandingpage.vercel.app` until the owner buys and points a domain and mailbox.
 
+Owner setup (Supabase RLS, Vercel Firewall, domain cutover): [`docs/OWNER-CHECKLIST.md`](docs/OWNER-CHECKLIST.md).
+
 ## Scripts
 
 ```bash

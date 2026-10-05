@@ -74,26 +74,31 @@ export function HeroSection() {
       <FloatingPaths position={-1} />
 
       <div className="relative">
-        {/* Editorial issue label */}
         {hero.badge && (
           <div className="animate-fade-up mb-10" style={{ animationDelay: "0ms" }}>
-            <span className="label-editorial">No. 01 — {hero.badge}</span>
+            <span className="label-editorial">{hero.badge}</span>
           </div>
         )}
 
-        {/* Oversized headline */}
         <div className="animate-fade-up" style={{ animationDelay: "80ms" }}>
           <EditorialHeadline text={hero.headline} />
         </div>
 
-        {/* Horizontal rule */}
+        {hero.secondaryCta && (
+          <p
+            className="animate-fade-up mt-6 max-w-xl font-sans text-base leading-relaxed text-muted-foreground md:text-lg"
+            style={{ animationDelay: "140ms" }}
+          >
+            {hero.secondaryCta.label}
+          </p>
+        )}
+
         <div
           aria-hidden
           className="animate-line-expand rule-editorial mt-10 mb-9"
           style={{ animationDelay: "200ms" }}
         />
 
-        {/* Sub-row: copy left / CTAs right */}
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <p
             className="animate-fade-up max-w-lg font-sans text-base leading-relaxed text-muted-foreground"
@@ -116,18 +121,6 @@ export function HeroSection() {
                 <ArrowRight className="ms-2 size-4" aria-hidden />
               </Link>
             </Button>
-
-            {hero.secondaryCta && (
-              <Link
-                href={hero.secondaryCta.href}
-                {...(hero.secondaryCta.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className="font-sans text-sm font-medium text-muted-foreground underline-offset-4 transition-colors duration-200 hover:text-foreground hover:underline"
-              >
-                {hero.secondaryCta.label} →
-              </Link>
-            )}
           </div>
         </div>
 

@@ -75,11 +75,8 @@ export function ComingSoonSection() {
       />
 
       <div className="relative">
-        {/* Brand + issue label */}
         <div className="mb-10 animate-fade-up" style={{ animationDelay: "0ms" }}>
-          <span className="label-editorial">
-            {siteConfig.sections.footer.brand.name} — Coming Soon
-          </span>
+          <span className="label-editorial">Coming soon</span>
         </div>
 
         {/* Headline — editorial oversized */}
@@ -143,7 +140,7 @@ export function ComingSoonSection() {
                         placeholder={siteConfig.sections.waitlist.inputPlaceholder}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="border-border bg-transparent font-sans text-foreground placeholder:text-muted-foreground/40 focus-visible:border-primary focus-visible:ring-0 focus-visible:ring-offset-0"
+                        className="border-border bg-transparent font-sans text-foreground placeholder:text-muted-foreground/40 focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring/50"
                       />
                       <Button
                         type="submit"
