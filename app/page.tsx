@@ -3,6 +3,8 @@ import { ComingSoonSection } from "@/components/sections/coming-soon-section"
 import { HeroSection } from "@/components/sections/hero-section"
 import { SocialProofSection } from "@/components/sections/social-proof-section"
 import { FeaturesSection } from "@/components/sections/features-section"
+import { QuoteExampleSection } from "@/components/sections/quote-example-section"
+import { DemoSection } from "@/components/sections/demo-section"
 import { PricingSection } from "@/components/sections/pricing-section"
 import { FaqSection } from "@/components/sections/faq-section"
 import { WaitlistSection } from "@/components/sections/waitlist-section"
@@ -32,6 +34,8 @@ export default function Home() {
         <HeroSection />
         <SocialProofSection />
         <FeaturesSection />
+        <QuoteExampleSection />
+        <DemoSection />
         <PricingSection />
         <FaqSection />
         <WaitlistSection />

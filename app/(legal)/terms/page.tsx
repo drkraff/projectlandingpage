@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
 }
 
-const updated = "September 20, 2026"
+const updated = "October 14, 2026"
 const company = siteConfig.seo.siteName
 
 export default function TermsPage() {
@@ -27,16 +27,17 @@ export default function TermsPage() {
 
       <Section title="1. What this site is">
         <p>
-          This website is a pre-MVP waitlist for {company}. It is not a live quoting product. By
-          using this site or joining the waitlist, you agree to these Terms. If you do not agree, do
-          not use the site.
+          This website collects interest in the {company} Android beta and an iPhone waitlist. It is
+          not a finished quoting product. By using this site or joining the list, you agree to these
+          Terms. If you do not agree, do not use the site.
         </p>
       </Section>
 
       <Section title="2. Waitlist">
         <p>
-          Joining the waitlist is email-only. We will write when Vela is ready to try — nothing
-          else. Submitting an email does not create an account, a contract for paid services, or a
+          The form asks for an email, your trade, your US state, and whether you want the Android
+          beta or the iPhone waitlist. We will write when there is a build to try — nothing else.
+          Submitting the form does not create an account, a contract for paid services, or a
           guaranteed launch date or price.
         </p>
       </Section>

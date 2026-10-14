@@ -13,12 +13,11 @@ export function FaqSection() {
   if (!faq.enabled) return null
 
   return (
-    <section id="faq" className="relative px-6 py-16 md:py-28 md:px-12 lg:px-20">
-      <div className="mx-auto max-w-[1400px]">
-        <Reveal className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-24">
-          <div className="flex flex-col gap-5 lg:pt-2">
-            <span className="label-editorial">FAQ</span>
-            <h2 className="font-heading text-[clamp(2rem,4vw,3.25rem)] font-normal leading-[0.95] tracking-tight text-foreground">
+    <section id="faq" className="scroll-mt-24 px-5 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-5xl">
+        <Reveal className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">
+          <div className="flex flex-col gap-4 lg:pt-2">
+            <h2 className="font-sans text-2xl font-medium tracking-tight text-foreground md:text-3xl">
               {faq.headline}
             </h2>
             {faq.subheadline && (

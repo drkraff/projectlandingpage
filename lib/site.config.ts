@@ -6,17 +6,18 @@ const siteConfig: SiteConfig = {
   // -------------------------------------------------------------------------
   seo: {
     siteName: "Vela",
-    title: "Vela — Talk the job. Send the quote before you leave.",
+    title: "Vela — Talk through the job. Get a clean quote before you leave the driveway.",
     titleTemplate: "%s | Vela",
     description:
-      "Turn a voice note from the driveway into a clean contractor quote — send by SMS, WhatsApp, or email. Pre-MVP waitlist.",
+      "Vela turns a voice note about a job into a quote you review, then a PDF. Android beta for US owner-operator electricians, plumbers, and handymen.",
     keywords: [
       "Vela",
       "contractor quote",
+      "electrician quote",
+      "plumber quote",
+      "handyman quote",
       "voice note to quote",
-      "on-site estimate",
-      "SMS quote",
-      "WhatsApp quote",
+      "Android beta",
     ],
     ogImage: "/og-image.png",
     // Public URL until DNS. Do not switch canonical off vercel.app until
@@ -33,10 +34,10 @@ const siteConfig: SiteConfig = {
   // Theme
   // -------------------------------------------------------------------------
   theme: {
-    defaultMode: "system",
-    primaryColor: "violet",
-    accentColor: "sky",
-    borderRadius: "md",
+    defaultMode: "dark",
+    primaryColor: "sage",
+    accentColor: "sage",
+    borderRadius: "lg",
   },
 
   // -------------------------------------------------------------------------
@@ -49,13 +50,13 @@ const siteConfig: SiteConfig = {
   },
 
   // -------------------------------------------------------------------------
-  // Coming-soon mode (unused — waitlist landing uses hero + FAQ instead)
+  // Coming-soon mode (unused — the beta landing is the live page)
   // -------------------------------------------------------------------------
   comingSoon: {
     enabled: false,
-    headline: "Talk the job. Send the quote before you leave.",
+    headline: "Talk through the job. Get a clean quote before you leave the driveway.",
     subheadline:
-      "A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email — so you’re not retyping after tools-down.",
+      "A voice note about the job becomes a quote you can review, then send as a PDF.",
     collectEmails: true,
   },
 
@@ -68,13 +69,13 @@ const siteConfig: SiteConfig = {
     // -----------------------------------------------------------------------
     hero: {
       enabled: true,
-      badge: "Pre-MVP waitlist",
-      headline: "Talk the job. Send the quote before you leave.",
+      badge: "Android beta · United States",
+      headline:
+        "Talk through the job. Get a clean quote before you leave the driveway.",
       subheadline:
-        "A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email — so you’re not retyping after tools-down.",
-      primaryCta: { label: "Join the waitlist", href: "/#waitlist" },
-      // Audience line under the headline (not a second CTA).
-      secondaryCta: { label: "For owner-operators who quote on-site", href: "/#features" },
+        "For owner-operators — electricians, plumbers, and handymen. A voice note about the job becomes a quote you review, then a PDF.",
+      primaryCta: { label: "Get the Android beta", href: "/#waitlist" },
+      secondaryCta: { label: "On iPhone? Join the waitlist", href: "/#waitlist" },
     },
 
     // -----------------------------------------------------------------------
@@ -88,31 +89,100 @@ const siteConfig: SiteConfig = {
     },
 
     // -----------------------------------------------------------------------
-    // Features
+    // How it works
     // -----------------------------------------------------------------------
     features: {
       enabled: true,
-      headline: "Drowning in estimates every night after the tools go down.",
-      subheadline:
-        "By morning the urgency’s gone. Take 2–3 days and you feel like you lose the job half the time.",
+      headline: "How it works",
+      subheadline: "Three steps. You check the price, and you decide what gets sent.",
       layout: "list",
       items: [
         {
           icon: "mic",
-          title: "Talk it on site",
-          description: "Capture the job as a voice note while you’re still there.",
+          title: "Talk through the job",
+          description:
+            "Record a voice note while you are still there. Room size in feet, hours, and the parts you saw.",
         },
         {
           icon: "file-text",
-          title: "Get a clean quote",
-          description: "Turn that note into a professional quote you can review.",
+          title: "Review the quote",
+          description:
+            "Vela drafts the line items in dollars, where each price came from, sales tax, and what is not included.",
         },
         {
           icon: "send",
-          title: "Send before you leave",
-          description: "SMS, WhatsApp, or email — quote in their hand same visit.",
+          title: "Send the PDF",
+          description: "When it looks right, send it. Nothing goes out before you review it.",
         },
       ],
+    },
+
+    // -----------------------------------------------------------------------
+    // Sample quote — illustration, not a customer story
+    // -----------------------------------------------------------------------
+    quoteExample: {
+      enabled: true,
+      headline: "A sample quote",
+      subheadline:
+        "A kitchen job, written the way the draft should read. The prices and the tax rate are examples.",
+      sampleLabel: "Sample",
+      customer: "Mike Johnson",
+      jobTitle: "Kitchen",
+      jobDetail:
+        "12 ft × 10 ft kitchen. Six recessed lights, and two GFCI outlets by the sink.",
+      lines: [
+        {
+          description: "Recessed lights",
+          detail: "6 × $85",
+          amount: 510,
+          source: "Your price list",
+        },
+        {
+          description: "GFCI outlets",
+          detail: "2 × $60",
+          amount: 120,
+          source: "Your price list",
+        },
+        {
+          description: "Labor",
+          detail: "3 hrs × $95/hr",
+          amount: 285,
+          source: "Your hourly rate",
+        },
+        {
+          description: "Materials",
+          detail: "40 ft of 14/2, boxes, and connectors",
+          amount: 150,
+          source: "From the voice note",
+        },
+      ],
+      taxRate: 0.0825,
+      taxLabel: "Sales tax (8.25%)",
+      taxNote:
+        "Example rate for this sample. You set the rate for the job’s state before you send.",
+      notIncludedTitle: "Not included",
+      notIncluded: [
+        "Permit and inspection",
+        "Drywall patch and paint",
+        "Panel upgrade",
+        "Trim rings, if the homeowner is supplying the cans",
+      ],
+      steps: [
+        { label: "Talk", status: "done" },
+        { label: "Review", status: "current" },
+        { label: "Send", status: "upcoming" },
+      ],
+      reviewNote: "You review this quote before it can be sent.",
+    },
+
+    // -----------------------------------------------------------------------
+    // Demo — hidden until videoUrl is a public https URL
+    // -----------------------------------------------------------------------
+    demo: {
+      enabled: true,
+      videoUrl: "",
+      title: "One minute",
+      caption: "A 60-second look: voice note, then the quote.",
     },
 
     // -----------------------------------------------------------------------
@@ -131,42 +201,58 @@ const siteConfig: SiteConfig = {
     // -----------------------------------------------------------------------
     faq: {
       enabled: true,
-      headline: "Straight answers",
-      subheadline: "Pre-MVP. No spin.",
+      headline: "Questions",
+      subheadline: "Plain answers.",
       items: [
         {
           question: "What is Vela?",
           answer:
-            "Voice note → professional quote → send by SMS, WhatsApp, or email.",
+            "You talk through a job. Vela drafts a quote. You review it, then send a PDF.",
         },
         {
-          question: "Who’s it for?",
+          question: "Who is it for?",
           answer:
-            "Owner-operators and small crews who quote on-site or right after.",
+            "Owner-operators in the US: electricians, plumbers, and handymen who quote their own work.",
         },
         {
-          question: "Is it live?",
-          answer: "Not yet — this is a pre-MVP waitlist.",
+          question: "Can I try it?",
+          answer:
+            "The Android beta is open for sign-up on this page. If you use an iPhone, use the same form to join the waitlist.",
+        },
+        {
+          question: "Does it send the quote by itself?",
+          answer: "No. You review the draft first. Nothing is sent until you say so.",
         },
         {
           question: "What does it cost?",
-          answer: "Undecided. Early access hears first.",
+          answer: "Not decided yet. People on the beta list hear first.",
         },
       ],
     },
 
     // -----------------------------------------------------------------------
-    // Waitlist / CTA
+    // Android beta / waitlist
     // -----------------------------------------------------------------------
     waitlist: {
       enabled: true,
-      headline: "Join the waitlist",
-      subheadline: "For owner-operators who quote on-site.",
+      headline: "Get the Android beta",
+      subheadline:
+        "US owner-operators. Electricians, plumbers, and handymen. iPhone users can join the waitlist here too.",
       inputPlaceholder: "you@email.com",
-      submitLabel: "Join the waitlist",
-      successMessage: "You’re on the list. We’ll email when Vela is ready to try.",
-      privacyNote:
-        "Email only. We’ll write when Vela is ready to try — nothing else.",
+      submitLabel: "Get the Android beta",
+      iphoneSubmitLabel: "Join the waitlist",
+      successMessage: "You’re on the list. We’ll email when there’s a build to try.",
+      privacyNote: "Email, trade, and state. We’ll write about the beta — nothing else.",
+      tradeLabel: "Trade",
+      stateLabel: "State",
+      platformLabel: "Phone",
+      androidOption: "Android — get the beta",
+      iphoneOption: "iPhone — join the waitlist",
+      trades: [
+        { value: "electrician", label: "Electrician" },
+        { value: "plumber", label: "Plumber" },
+        { value: "handyman", label: "Handyman" },
+      ],
       supabaseTable: "waitlist",
     },
 
@@ -177,15 +263,18 @@ const siteConfig: SiteConfig = {
       enabled: true,
       brand: {
         name: "Vela",
-        tagline: "Talk the job. Send the quote before you leave.",
+        tagline:
+          "Talk through the job. Get a clean quote before you leave the driveway.",
+        founderLine: "Built by Ofer, the founder.",
       },
       linkGroups: [
         {
           heading: "On this page",
           items: [
-            { label: "How it works", href: "/#features" },
+            { label: "How it works", href: "/#how-it-works" },
+            { label: "Example quote", href: "/#example" },
             { label: "FAQ", href: "/#faq" },
-            { label: "Waitlist", href: "/#waitlist" },
+            { label: "Android beta", href: "/#waitlist" },
           ],
         },
       ],

@@ -16,6 +16,7 @@ RLS on table `waitlist`:
 - Allow **anon INSERT only**
 - Do **not** grant anon SELECT, UPDATE, or DELETE
 - Unique constraint on email is fine (API treats duplicates as success)
+- Columns `trade`, `us_state`, and `platform` store the beta form (see `docs/supabase-waitlist.sql`). Until those columns exist, the API saves the email and skips the extra fields.
 
 ## 2. Vercel Firewall
 
