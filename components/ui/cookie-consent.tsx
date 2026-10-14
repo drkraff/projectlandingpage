@@ -62,14 +62,14 @@ export function CookieConsent() {
             variant="outline"
             size="sm"
             onClick={decline}
-            className="cursor-pointer rounded-none border-border font-sans text-xs font-medium uppercase tracking-[0.12em]"
+            className="h-11 cursor-pointer rounded-xl border-border px-4 font-sans text-sm font-medium"
           >
             Decline
           </Button>
           <Button
             size="sm"
             onClick={accept}
-            className="cursor-pointer rounded-none bg-primary font-sans text-xs font-medium uppercase tracking-[0.12em] text-primary-foreground hover:bg-primary/85"
+            className="h-11 cursor-pointer rounded-xl bg-primary px-4 font-sans text-sm font-medium text-primary-foreground hover:bg-primary/90"
           >
             Accept
           </Button>

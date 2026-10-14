@@ -9,7 +9,13 @@ import siteConfig from "@/lib/site.config"
 
 const navLinks = [
   ...(siteConfig.sections.features.enabled
-    ? [{ label: "How it works", href: "/#features" }]
+    ? [{ label: "How it works", href: "/#how-it-works" }]
+    : []),
+  ...(siteConfig.sections.quoteExample.enabled
+    ? [{ label: "Example", href: "/#example" }]
+    : []),
+  ...(siteConfig.sections.demo.enabled && siteConfig.sections.demo.videoUrl.trim()
+    ? [{ label: "Demo", href: "/#demo" }]
     : []),
   ...(siteConfig.sections.faq.enabled
     ? [{ label: "FAQ", href: "/#faq" }]
@@ -65,27 +71,27 @@ export function Header() {
     <>
       <header className="fixed inset-x-0 top-0 z-50">
         <div
-          className={`mx-auto flex max-w-[1400px] items-center justify-between border-b px-6 py-4 backdrop-blur-md transition-all duration-200 md:px-12 lg:px-20 ${
+          className={`mx-auto flex max-w-5xl items-center justify-between border-b px-5 py-3 backdrop-blur-md transition-colors duration-200 md:px-8 ${
             scrolled
-              ? "border-border/60 bg-background/95 shadow-sm"
-              : "border-border/40 bg-background/90"
+              ? "border-border bg-background/95"
+              : "border-transparent bg-background/80"
           }`}
         >
           {/* Brand */}
           <Link
             href="/"
-            className="font-heading text-xl tracking-tight text-foreground transition-opacity duration-200 hover:opacity-60"
+            className="font-sans text-lg font-medium tracking-tight text-foreground transition-opacity duration-200 hover:opacity-70"
           >
             {name}
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
+          <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-all duration-200 hover:tracking-[0.2em] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="cursor-pointer font-sans text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {link.label}
               </Link>
@@ -97,15 +103,14 @@ export function Header() {
             <ThemeToggle />
             <Button
               asChild
-              size="sm"
-              className="hidden cursor-pointer bg-primary text-primary-foreground transition-colors hover:bg-primary/85 md:inline-flex"
+              className="hidden h-11 cursor-pointer rounded-xl bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 lg:inline-flex"
             >
               <Link href="/#waitlist">{ctaLabel}</Link>
             </Button>
 
-            {/* Hamburger — mobile only */}
+            {/* Hamburger — below the desktop nav */}
             <button
-              className="flex cursor-pointer items-center justify-center rounded-none p-1 text-foreground transition-opacity duration-150 hover:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
+              className="flex size-11 cursor-pointer items-center justify-center rounded-xl text-foreground transition-colors duration-150 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
@@ -121,7 +126,7 @@ export function Header() {
       {/* Backdrop */}
       <div
         aria-hidden
-        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setMenuOpen(false)}
@@ -134,15 +139,15 @@ export function Header() {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-border bg-background transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-border bg-background transition-transform duration-300 ease-in-out lg:hidden ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between border-b border-border px-6 py-4">
-          <span className="font-heading text-lg tracking-tight">{name}</span>
+          <span className="font-sans text-lg font-medium tracking-tight">{name}</span>
           <button
-            className="flex cursor-pointer items-center justify-center p-1 text-muted-foreground transition-opacity duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="flex size-11 cursor-pointer items-center justify-center rounded-xl text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             aria-label="Close menu"
             onClick={() => setMenuOpen(false)}
           >
@@ -156,7 +161,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-sans text-sm font-medium uppercase tracking-[0.14em] text-muted-foreground py-3 border-b border-border/40 transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="cursor-pointer border-b border-border/40 py-3 font-sans text-base text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -168,7 +173,7 @@ export function Header() {
         <div className="mt-auto p-6">
           <Button
             asChild
-            className="w-full cursor-pointer bg-primary text-primary-foreground transition-colors hover:bg-primary/85"
+            className="h-12 w-full cursor-pointer rounded-xl bg-primary text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             <Link href="/#waitlist" onClick={() => setMenuOpen(false)}>
               {ctaLabel}

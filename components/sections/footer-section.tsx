@@ -33,8 +33,8 @@ export function FooterSection() {
   if (!footer.enabled) return null
 
   return (
-    <footer className="relative px-6 pb-8 pt-14 md:pt-20 md:px-12 lg:px-20">
-      <div className="mx-auto max-w-[1400px]">
+    <footer className="px-5 pb-10 pt-16 md:px-8 md:pt-20">
+      <div className="mx-auto max-w-5xl">
         {/* Top rule */}
         <div aria-hidden className="rule-editorial mb-12 md:mb-16" />
 
@@ -51,14 +51,17 @@ export function FooterSection() {
                 className="h-7 w-auto"
               />
             ) : (
-              <span className="font-heading text-2xl font-normal tracking-tight text-foreground">
+              <span className="font-sans text-lg font-medium tracking-tight text-foreground">
                 {footer.brand.name}
               </span>
             )}
             {footer.brand.tagline && (
-              <p className="max-w-[220px] font-sans text-xs leading-relaxed text-muted-foreground">
+              <p className="max-w-xs font-sans text-sm leading-relaxed text-muted-foreground">
                 {footer.brand.tagline}
               </p>
+            )}
+            {footer.brand.founderLine && (
+              <p className="font-sans text-sm text-muted-foreground">{footer.brand.founderLine}</p>
             )}
             {/* Social icons */}
             {footer.socials && footer.socials.length > 0 && (
@@ -86,7 +89,7 @@ export function FooterSection() {
           <div className="col-span-1 grid grid-cols-2 gap-8 md:col-span-3 md:grid-cols-3">
             {footer.linkGroups.map((group) => (
               <div key={group.heading} className="flex flex-col gap-5">
-                <h3 className="font-sans text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-foreground/40">
+                <h3 className="font-sans text-xs font-medium text-muted-foreground">
                   {group.heading}
                 </h3>
                 <ul className="flex flex-col gap-3">
@@ -112,7 +115,7 @@ export function FooterSection() {
         <div aria-hidden className="rule-editorial mt-12 mb-8 md:mt-16" />
 
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <p className="font-sans text-xs text-muted-foreground/40">
+          <p className="font-sans text-xs text-muted-foreground">
             {footer.copyright}
           </p>
 
@@ -121,7 +124,7 @@ export function FooterSection() {
               {footer.legal.privacyHref && (
                 <Link
                   href={footer.legal.privacyHref}
-                  className="font-sans text-xs text-muted-foreground/40 transition-colors hover:text-muted-foreground"
+                  className="cursor-pointer font-sans text-xs text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Privacy
                 </Link>
@@ -129,7 +132,7 @@ export function FooterSection() {
               {footer.legal.termsHref && (
                 <Link
                   href={footer.legal.termsHref}
-                  className="font-sans text-xs text-muted-foreground/40 transition-colors hover:text-muted-foreground"
+                  className="cursor-pointer font-sans text-xs text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Terms
                 </Link>
@@ -137,7 +140,7 @@ export function FooterSection() {
               {footer.legal.cookiesHref && (
                 <Link
                   href={footer.legal.cookiesHref}
-                  className="font-sans text-xs text-muted-foreground/40 transition-colors hover:text-muted-foreground"
+                  className="cursor-pointer font-sans text-xs text-muted-foreground transition-colors hover:text-foreground"
                 >
                   Cookies
                 </Link>

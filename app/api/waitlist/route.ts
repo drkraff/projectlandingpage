@@ -8,6 +8,7 @@ import {
   readLimitedJson,
 } from "@/lib/waitlist-request"
 import siteConfig from "@/lib/site.config"
+import { isUsStateCode } from "@/lib/us-states"
 
 export const runtime = "nodejs"
 
@@ -15,6 +16,19 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const MAX_EMAIL_LENGTH = 254
 const GENERIC_ERROR = "Something went wrong. Please try again."
 const GENERIC_REJECT = "Unable to process request."
+
+function optionalString(value: unknown): string | null {
+  if (value == null) return null
+  if (typeof value !== "string") return null
+  const trimmed = value.trim()
+  return trimmed === "" ? null : trimmed
+}
+
+function isMissingColumn(error: { code?: string; message?: string }): boolean {
+  if (error.code === "42703" || error.code === "PGRST204") return true
+  const message = (error.message ?? "").toLowerCase()
+  return message.includes("schema cache") && message.includes("column")
+}
 
 function jsonError(message: string, status: number, extraHeaders?: HeadersInit) {
   return NextResponse.json({ error: message }, { status, headers: extraHeaders })
@@ -64,6 +78,23 @@ export async function POST(req: NextRequest) {
       return jsonError("Invalid email address.", 400)
     }
 
+    const trades = new Set(siteConfig.sections.waitlist.trades.map((item) => item.value))
+    const trade = optionalString(payload.trade)
+    if (payload.trade != null && payload.trade !== "" && (trade === null || !trades.has(trade))) {
+      return jsonError("Choose a trade.", 400)
+    }
+
+    const usStateRaw = optionalString(payload.usState)
+    const usState = usStateRaw ? usStateRaw.toUpperCase() : null
+    if (payload.usState != null && payload.usState !== "" && (usState === null || !isUsStateCode(usState))) {
+      return jsonError("Choose a US state.", 400)
+    }
+
+    const platform = optionalString(payload.platform)
+    if (platform !== null && platform !== "android" && platform !== "iphone") {
+      return jsonError("Choose Android or iPhone.", 400)
+    }
+
     const supabase = getSupabaseClient()
     if (!supabase) {
       console.error("Waitlist storage unavailable")
@@ -71,9 +102,20 @@ export async function POST(req: NextRequest) {
     }
 
     const table = siteConfig.sections.waitlist.supabaseTable ?? "waitlist"
-    const { error } = await supabase
-      .from(table)
-      .insert({ email: email.toLowerCase().trim() })
+    const normalizedEmail = email.toLowerCase().trim()
+    const row: Record<string, string> = { email: normalizedEmail }
+    if (trade) row.trade = trade
+    if (usState) row.us_state = usState
+    if (platform) row.platform = platform
+
+    let { error } = await supabase.from(table).insert(row)
+
+    // Existing tables may only have email until the owner runs the column migration.
+    if (error && isMissingColumn(error) && Object.keys(row).length > 1) {
+      console.error("Waitlist extra columns missing; stored email only")
+      const retry = await supabase.from(table).insert({ email: normalizedEmail })
+      error = retry.error
+    }
 
     if (error) {
       // Unique violation — already signed up. Do not reveal that.

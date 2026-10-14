@@ -201,14 +201,27 @@ export interface FaqConfig {
 // Waitlist / CTA
 // ---------------------------------------------------------------------------
 
+export interface WaitlistTrade {
+  value: string;
+  label: string;
+}
+
 export interface WaitlistConfig {
   enabled: boolean;
   headline: string;
   subheadline?: string;
   inputPlaceholder: string;
   submitLabel: string;
+  /** Button label when the person chooses iPhone */
+  iphoneSubmitLabel: string;
   successMessage: string;
   privacyNote?: string;
+  tradeLabel: string;
+  stateLabel: string;
+  platformLabel: string;
+  androidOption: string;
+  iphoneOption: string;
+  trades: WaitlistTrade[];
   /** Supabase table name to insert emails into */
   supabaseTable?: string;
 }
@@ -250,12 +263,61 @@ export interface LegalLinks {
   cookiesHref?: string;
 }
 
+export type QuoteStepStatus = "done" | "current" | "upcoming";
+
+export interface QuoteLine {
+  description: string;
+  /** Quantity and unit, e.g. "6 × $85" or "3 hrs × $95/hr" */
+  detail: string;
+  /** Line total in US dollars */
+  amount: number;
+  /** Where the price came from */
+  source: string;
+}
+
+export interface QuoteStep {
+  label: string;
+  status: QuoteStepStatus;
+}
+
+export interface QuoteExampleConfig {
+  enabled: boolean;
+  headline: string;
+  subheadline?: string;
+  sampleLabel: string;
+  customer: string;
+  jobTitle: string;
+  jobDetail: string;
+  lines: QuoteLine[];
+  /** Decimal rate, e.g. 0.0825 for 8.25% */
+  taxRate: number;
+  taxLabel: string;
+  taxNote: string;
+  notIncludedTitle: string;
+  notIncluded: string[];
+  steps: QuoteStep[];
+  reviewNote: string;
+}
+
+export interface DemoConfig {
+  enabled: boolean;
+  /**
+   * Public https URL for a short demo (about 60 seconds).
+   * An empty string hides the section.
+   */
+  videoUrl: string;
+  title: string;
+  caption?: string;
+}
+
 export interface FooterConfig {
   enabled: boolean;
   brand: {
     name: string;
     logo?: ImageAsset;
     tagline?: string;
+    /** One short line, e.g. who builds the product */
+    founderLine?: string;
   };
   linkGroups: FooterLinkGroup[];
   socials?: SocialLink[];
@@ -271,6 +333,8 @@ export interface SiteSections {
   hero: HeroConfig;
   socialProof: SocialProofConfig;
   features: FeaturesConfig;
+  quoteExample: QuoteExampleConfig;
+  demo: DemoConfig;
   pricing: PricingConfig;
   faq: FaqConfig;
   waitlist: WaitlistConfig;

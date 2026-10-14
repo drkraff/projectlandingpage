@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
 }
 
-const updated = "September 20, 2026"
+const updated = "October 14, 2026"
 const company = siteConfig.seo.siteName
 
 export default function PrivacyPage() {
@@ -46,9 +46,9 @@ export default function PrivacyPage() {
 
       <Section title="2. Information we collect">
         <p>
-          We collect the email address you type into the waitlist form. That is the only personal
-          information we ask for. We do not collect your name, phone number, or street address, and
-          we do not have a public street address to publish.
+          On the beta form we collect your email address, your trade, your US state, and whether
+          you want the Android beta or the iPhone waitlist. We do not collect your name, phone
+          number, or street address, and we do not have a public street address to publish.
         </p>
         <p>
           If you consent to analytics cookies, we also receive anonymised usage data (pages viewed
@@ -58,14 +58,14 @@ export default function PrivacyPage() {
 
       <Section title="3. How we use your information">
         <p>
-          Email only. We’ll write when Vela is ready to try — nothing else. We do not use waitlist
-          addresses for unrelated marketing.
+          We use this to tell you when there is a build to try — the Android beta, or the iPhone
+          waitlist. Nothing else. We do not use these details for unrelated marketing.
         </p>
       </Section>
 
       <Section title="4. Sharing your information">
         <p>
-          We do not sell your personal data. This site is hosted by Vercel. Waitlist emails are
+          We do not sell your personal data. This site is hosted by Vercel. Signup details are
           stored with our database provider (Supabase) so we can send the one “ready to try”
           message. Vercel and Supabase act as processors. If you accept analytics cookies, Vercel
           also processes anonymised usage data. We may disclose information if required by law.
@@ -85,7 +85,7 @@ export default function PrivacyPage() {
 
       <Section title="6. Data retention">
         <p>
-          We keep your email until you ask us to remove it, or the waitlist is closed. We may
+          We keep your signup details until you ask us to remove them, or the list is closed. We may
           refine this later.
         </p>
       </Section>

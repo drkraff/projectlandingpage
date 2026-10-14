@@ -1,8 +1,8 @@
 # Vela
 
-Pre-MVP waitlist for **Vela** (pronounced VAY-lah): talk the job, send the quote before you leave.
+Android beta signup for **Vela** (pronounced VAY-lah): talk through the job, get a clean quote before you leave the driveway.
 
-A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email.
+A voice note becomes a quote you review, then a PDF. For US owner-operator electricians, plumbers, and handymen. iPhone users can join the same waitlist.
 
 Public URL until DNS: [https://projectlandingpage.vercel.app](https://projectlandingpage.vercel.app)
 

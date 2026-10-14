@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
 }
 
-const updated = "September 20, 2026"
+const updated = "October 14, 2026"
 
 export default function CookiesPage() {
   return (
@@ -74,7 +74,7 @@ export default function CookiesPage() {
           >
             Vercel’s Privacy Policy
           </a>
-          . This site is also hosted by Vercel; waitlist emails are stored by Supabase. Both act as
+          . This site is also hosted by Vercel; signup details are stored by Supabase. Both act as
           processors. No other trackers.
         </p>
       </Section>

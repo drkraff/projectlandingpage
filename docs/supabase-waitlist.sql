@@ -7,8 +7,16 @@
 
 create table if not exists public.waitlist (
   email text not null unique,
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  trade text,
+  us_state text,
+  platform text
 );
+
+-- Existing tables created before the beta fields.
+alter table public.waitlist add column if not exists trade text;
+alter table public.waitlist add column if not exists us_state text;
+alter table public.waitlist add column if not exists platform text;
 
 alter table public.waitlist enable row level security;
 
