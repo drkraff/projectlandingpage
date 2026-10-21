@@ -33,10 +33,12 @@ const siteConfig: SiteConfig = {
   // Theme
   // -------------------------------------------------------------------------
   theme: {
-    defaultMode: "system",
-    primaryColor: "violet",
-    accentColor: "sky",
-    borderRadius: "md",
+    // Visual tokens live in app/globals.css (screenshot-matched; quoteSnap
+    // theme files were not readable from this environment).
+    defaultMode: "dark",
+    primaryColor: "orange",
+    accentColor: "orange",
+    borderRadius: "lg",
   },
 
   // -------------------------------------------------------------------------

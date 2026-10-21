@@ -12,7 +12,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       aria-label="Toggle dark mode"
-      className="cursor-pointer"
+      className="relative size-11 cursor-pointer rounded-full"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       <Sun className="size-4 rotate-0 scale-100 transition-transform duration-200 dark:-rotate-90 dark:scale-0" />

@@ -15,14 +15,14 @@ export default function TermsPage() {
   return (
     <article className="prose-legal">
       <span className="label-editorial mb-6 block">Legal</span>
-      <h1 className="font-heading text-4xl font-normal leading-tight tracking-tight text-foreground md:text-5xl">
+      <h1 className="font-sans text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">
         Terms of Service
       </h1>
       <p className="mt-4 font-sans text-sm text-muted-foreground">
         Last updated: {updated}
       </p>
 
-      <div className="rule-editorial my-10" />
+      <div className="my-8 h-px w-full bg-border" />
 
       <Section title="1. What this site is">
         <p>
@@ -101,10 +101,10 @@ export default function TermsPage() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mb-10">
-      <h2 className="mb-3 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <h2 className="mb-3 font-sans text-base font-semibold text-foreground">
         {title}
       </h2>
-      <div className="font-sans text-sm leading-relaxed text-foreground/80 [&_a]:text-foreground [&_li]:mb-1 [&_p+p]:mt-3 [&_ul]:mt-2 [&_ul]:list-disc [&_ul]:pl-5">
+      <div className="font-sans text-base leading-relaxed text-muted-foreground [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_li]:mb-1 [&_p+p]:mt-3 [&_ul]:mt-2 [&_ul]:list-disc [&_ul]:pl-5">
         {children}
       </div>
     </section>

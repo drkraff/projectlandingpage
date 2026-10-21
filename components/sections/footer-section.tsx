@@ -33,13 +33,11 @@ export function FooterSection() {
   if (!footer.enabled) return null
 
   return (
-    <footer className="relative px-6 pb-8 pt-14 md:pt-20 md:px-12 lg:px-20">
-      <div className="mx-auto max-w-[1400px]">
-        {/* Top rule */}
-        <div aria-hidden className="rule-editorial mb-12 md:mb-16" />
+    <footer className="relative px-4 pb-10 pt-14 md:px-6">
+      <div className="mx-auto max-w-5xl border-t border-border pt-10">
 
         {/* Top row: brand + link groups */}
-        <Reveal className="grid gap-12 md:grid-cols-[2fr_repeat(3,1fr)]">
+        <Reveal className="grid gap-10 sm:grid-cols-[minmax(0,1.4fr)_minmax(12rem,0.8fr)] sm:items-start">
           {/* Brand — editorial wordmark column */}
           <div className="flex flex-col gap-5">
             {footer.brand.logo ? (
@@ -51,12 +49,12 @@ export function FooterSection() {
                 className="h-7 w-auto"
               />
             ) : (
-              <span className="font-heading text-2xl font-normal tracking-tight text-foreground">
+              <span className="font-sans text-xl font-semibold tracking-tight text-foreground">
                 {footer.brand.name}
               </span>
             )}
             {footer.brand.tagline && (
-              <p className="max-w-[220px] font-sans text-xs leading-relaxed text-muted-foreground">
+              <p className="max-w-xs font-sans text-sm leading-relaxed text-pretty text-muted-foreground">
                 {footer.brand.tagline}
               </p>
             )}
@@ -72,7 +70,7 @@ export function FooterSection() {
                       aria-label={social.label}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="cursor-pointer text-muted-foreground/40 transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      className="inline-flex size-11 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors duration-150 hover:bg-card hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       <Icon className="size-4" />
                     </a>
@@ -83,10 +81,10 @@ export function FooterSection() {
           </div>
 
           {/* Link groups — 2-col on mobile, flat on md+ */}
-          <div className="col-span-1 grid grid-cols-2 gap-8 md:col-span-3 md:grid-cols-3">
+          <div className="grid gap-8 sm:justify-items-start">
             {footer.linkGroups.map((group) => (
               <div key={group.heading} className="flex flex-col gap-5">
-                <h3 className="font-sans text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-foreground/40">
+                <h3 className="font-sans text-sm font-semibold text-foreground">
                   {group.heading}
                 </h3>
                 <ul className="flex flex-col gap-3">
@@ -97,7 +95,7 @@ export function FooterSection() {
                         {...(item.external
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}
-                        className="font-sans text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:underline"
+                        className="inline-flex min-h-11 items-center font-sans text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:underline md:min-h-0 md:py-1"
                       >
                         {item.label}
                       </Link>
@@ -109,10 +107,8 @@ export function FooterSection() {
           </div>
         </Reveal>
         {/* Bottom rule + copyright */}
-        <div aria-hidden className="rule-editorial mt-12 mb-8 md:mt-16" />
-
-        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <p className="font-sans text-xs text-muted-foreground/40">
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+          <p className="font-sans text-sm text-muted-foreground">
             {footer.copyright}
           </p>
 
@@ -121,7 +117,7 @@ export function FooterSection() {
               {footer.legal.privacyHref && (
                 <Link
                   href={footer.legal.privacyHref}
-                  className="font-sans text-xs text-muted-foreground/40 transition-colors hover:text-muted-foreground"
+                  className="inline-flex min-h-11 items-center font-sans text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline focus-visible:outline-none focus-visible:underline"
                 >
                   Privacy
                 </Link>
@@ -129,7 +125,7 @@ export function FooterSection() {
               {footer.legal.termsHref && (
                 <Link
                   href={footer.legal.termsHref}
-                  className="font-sans text-xs text-muted-foreground/40 transition-colors hover:text-muted-foreground"
+                  className="inline-flex min-h-11 items-center font-sans text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline focus-visible:outline-none focus-visible:underline"
                 >
                   Terms
                 </Link>
@@ -137,7 +133,7 @@ export function FooterSection() {
               {footer.legal.cookiesHref && (
                 <Link
                   href={footer.legal.cookiesHref}
-                  className="font-sans text-xs text-muted-foreground/40 transition-colors hover:text-muted-foreground"
+                  className="inline-flex min-h-11 items-center font-sans text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline focus-visible:outline-none focus-visible:underline"
                 >
                   Cookies
                 </Link>
