@@ -58,8 +58,8 @@ export function WaitlistSection() {
       />
 
       <div className="mx-auto max-w-5xl">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-end lg:gap-16">
-          <Reveal className="flex flex-col gap-6">
+        <div className="grid gap-8 lg:grid-cols-[minmax(16rem,0.9fr)_minmax(18rem,1.1fr)] lg:items-end lg:gap-16">
+          <Reveal className="flex min-w-0 flex-col gap-6">
             <span className="label-editorial">Waitlist</span>
             <h2 className="font-sans text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
               {waitlist.headline.split(".").map((part, i, arr) =>
@@ -73,13 +73,13 @@ export function WaitlistSection() {
               )}
             </h2>
             {waitlist.subheadline && (
-              <p className="max-w-sm font-sans text-base leading-relaxed text-muted-foreground">
+              <p className="max-w-md font-sans text-base leading-relaxed text-pretty text-muted-foreground">
                 {waitlist.subheadline}
               </p>
             )}
           </Reveal>
           {/* Right — form */}
-          <Reveal delay={150} className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-5 sm:p-6">
+          <Reveal delay={150} className="flex min-w-0 flex-col gap-4 rounded-2xl border border-border bg-card p-5 sm:p-6">
             {status === "success" ? (
               <div className="flex items-center gap-4 rounded-xl border border-border bg-background p-5" role="status">
                 <CheckCircle2 className="size-5 shrink-0 text-primary" aria-hidden />

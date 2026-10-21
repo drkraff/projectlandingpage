@@ -37,7 +37,7 @@ export function FooterSection() {
       <div className="mx-auto max-w-5xl border-t border-border pt-10">
 
         {/* Top row: brand + link groups */}
-        <Reveal className="grid gap-12 md:grid-cols-[2fr_repeat(3,1fr)]">
+        <Reveal className="grid gap-10 sm:grid-cols-[minmax(0,1.4fr)_minmax(12rem,0.8fr)] sm:items-start">
           {/* Brand — editorial wordmark column */}
           <div className="flex flex-col gap-5">
             {footer.brand.logo ? (
@@ -54,7 +54,7 @@ export function FooterSection() {
               </span>
             )}
             {footer.brand.tagline && (
-              <p className="max-w-[16rem] font-sans text-sm leading-relaxed text-muted-foreground">
+              <p className="max-w-xs font-sans text-sm leading-relaxed text-pretty text-muted-foreground">
                 {footer.brand.tagline}
               </p>
             )}
@@ -81,7 +81,7 @@ export function FooterSection() {
           </div>
 
           {/* Link groups — 2-col on mobile, flat on md+ */}
-          <div className="col-span-1 grid grid-cols-2 gap-8 md:col-span-3 md:grid-cols-3">
+          <div className="grid gap-8 sm:justify-items-start">
             {footer.linkGroups.map((group) => (
               <div key={group.heading} className="flex flex-col gap-5">
                 <h3 className="font-sans text-sm font-semibold text-foreground">

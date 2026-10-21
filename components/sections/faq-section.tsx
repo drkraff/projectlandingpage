@@ -15,14 +15,14 @@ export function FaqSection() {
   return (
     <section id="faq" className="relative px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-5xl">
-        <Reveal className="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-          <div className="flex flex-col gap-3">
+        <Reveal className="grid gap-8 lg:grid-cols-[minmax(16rem,0.8fr)_minmax(0,1.4fr)] lg:items-start lg:gap-16">
+          <div className="flex min-w-0 max-w-md flex-col gap-3">
             <span className="label-editorial">FAQ</span>
             <h2 className="font-sans text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
               {faq.headline}
             </h2>
             {faq.subheadline && (
-              <p className="font-sans text-sm leading-relaxed text-muted-foreground">
+              <p className="font-sans text-base leading-relaxed text-pretty text-muted-foreground">
                 {faq.subheadline}
               </p>
             )}
@@ -40,7 +40,7 @@ export function FaqSection() {
           </div>
 
           {/* Right — accordion */}
-          <Accordion type="single" collapsible className="w-full rounded-2xl border border-border bg-card px-4 sm:px-5">
+          <Accordion type="single" collapsible className="min-w-0 w-full rounded-2xl border border-border bg-card px-4 sm:px-5">
             {faq.items.map((item, i) => (
               <AccordionItem
                 key={item.question}

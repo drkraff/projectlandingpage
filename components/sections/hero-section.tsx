@@ -47,9 +47,9 @@ export function HeroSection() {
           </p>
         )}
 
-        <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div className="mt-8 flex max-w-3xl flex-col items-start gap-6">
           <p
-            className="animate-fade-up max-w-lg font-sans text-base leading-relaxed text-muted-foreground"
+            className="animate-fade-up font-sans text-base leading-relaxed text-pretty text-muted-foreground"
             style={{ animationDelay: "280ms" }}
           >
             {hero.subheadline}

@@ -30,15 +30,15 @@ export function FeaturesSection() {
   return (
     <section id="features" className="relative px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-5xl">
-        <Reveal className="mb-8 grid gap-4 md:mb-12 md:grid-cols-[1.2fr_1fr] md:items-end md:gap-12">
+        <Reveal className="mb-8 flex max-w-3xl flex-col gap-4 md:mb-12">
           <div className="flex flex-col gap-3">
             <span className="label-editorial">How it works</span>
-            <h2 className="font-sans text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-sans text-2xl font-semibold leading-tight tracking-tight text-balance text-foreground sm:text-4xl">
               {features.headline}
             </h2>
           </div>
           {features.subheadline && (
-            <p className="max-w-sm font-sans text-base leading-relaxed text-muted-foreground md:pb-2">
+            <p className="max-w-2xl font-sans text-base leading-relaxed text-pretty text-muted-foreground">
               {features.subheadline}
             </p>
           )}
