@@ -17,10 +17,10 @@ allows anon INSERT and nothing else. Duplicate emails (unique violation 23505)
 are treated as success in `/api/waitlist`. Missing/invalid Supabase env returns
 503 without leaking a stack.
 
-## Public URL until DNS
-https://projectlandingpage.vercel.app
+## Public URL
+https://www.velaquote.com
 
-Do not switch canonical off this host until a domain and mailbox are purchased and pointed.
+Apex `velaquote.com` redirects to www. Canonical, sitemap, robots, and the social card use that origin.
 
 ## Intended email (pending DNS — not live)
 - hello@vela.io

@@ -18,10 +18,10 @@ const siteConfig: SiteConfig = {
       "SMS quote",
       "WhatsApp quote",
     ],
-    ogImage: "/og-image.png",
-    // Public URL until DNS. Do not switch canonical off vercel.app until
-    // the owner buys and points a domain.
-    canonicalUrl: "https://projectlandingpage.vercel.app",
+    // Absolute so og:image / twitter:image do not depend on the request host.
+    ogImage: "https://www.velaquote.com/og-image.png",
+    // Apex velaquote.com redirects here.
+    canonicalUrl: "https://www.velaquote.com",
     noIndex: false,
     // Intended mailboxes. Pending DNS — vela.io is not purchased or pointed.
     // These addresses are not live; do not assume mail is received.

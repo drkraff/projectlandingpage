@@ -5,14 +5,13 @@ import {
   MAX_WAITLIST_BODY_BYTES,
   getClientIp,
   isSameSiteRequest,
+  normalizeWaitlistEmail,
   readLimitedJson,
 } from "@/lib/waitlist-request"
 import siteConfig from "@/lib/site.config"
 
 export const runtime = "nodejs"
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-const MAX_EMAIL_LENGTH = 254
 const GENERIC_ERROR = "Something went wrong. Please try again."
 const GENERIC_REJECT = "Unable to process request."
 
@@ -45,22 +44,24 @@ export async function POST(req: NextRequest) {
       return jsonError("Invalid email address.", 400)
     }
 
-    if (body.value === null || typeof body.value !== "object") {
+    if (
+      body.value === null ||
+      typeof body.value !== "object" ||
+      Array.isArray(body.value)
+    ) {
       return jsonError("Invalid email address.", 400)
     }
 
     const payload = body.value as Record<string, unknown>
     // Honeypot: bots fill this; real users never see it. Pretend success.
-    if (typeof payload.website === "string" && payload.website.trim() !== "") {
-      return jsonOk()
+    if ("website" in payload && payload.website != null && payload.website !== "") {
+      if (typeof payload.website !== "string" || payload.website.trim() !== "") {
+        return jsonOk()
+      }
     }
 
-    const email = payload.email
-    if (
-      typeof email !== "string" ||
-      email.length > MAX_EMAIL_LENGTH ||
-      !EMAIL_RE.test(email)
-    ) {
+    const email = normalizeWaitlistEmail(payload.email)
+    if (!email) {
       return jsonError("Invalid email address.", 400)
     }
 
@@ -73,7 +74,7 @@ export async function POST(req: NextRequest) {
     const table = siteConfig.sections.waitlist.supabaseTable ?? "waitlist"
     const { error } = await supabase
       .from(table)
-      .insert({ email: email.toLowerCase().trim() })
+      .insert({ email })
 
     if (error) {
       // Unique violation — already signed up. Do not reveal that.

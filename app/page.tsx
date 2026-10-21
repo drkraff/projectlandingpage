@@ -7,17 +7,11 @@ import { PricingSection } from "@/components/sections/pricing-section"
 import { FaqSection } from "@/components/sections/faq-section"
 import { WaitlistSection } from "@/components/sections/waitlist-section"
 import { FooterSection } from "@/components/sections/footer-section"
+import { pageSocialMetadata } from "@/lib/seo"
 import siteConfig from "@/lib/site.config"
 import type { Metadata } from "next"
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: siteConfig.seo.canonicalUrl,
-  },
-  openGraph: {
-    url: siteConfig.seo.canonicalUrl,
-  },
-}
+export const metadata: Metadata = pageSocialMetadata("/")
 
 export default function Home() {
   // Coming-soon mode replaces the full landing page

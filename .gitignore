@@ -34,6 +34,16 @@ yarn-error.log*
 .env*
 !.env.example
 
+# credential material — never commit
+*.key
+*.p12
+*.pfx
+*.jks
+credentials.json
+service-account*.json
+.secrets/
+supabase/.temp/
+
 # vercel
 .vercel
 
