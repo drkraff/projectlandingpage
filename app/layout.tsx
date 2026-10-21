@@ -3,6 +3,7 @@ import { DM_Serif_Display, Instrument_Sans } from "next/font/google"
 import { Providers } from "@/components/providers"
 import { CookieConsent } from "@/components/ui/cookie-consent"
 import { AnalyticsProvider } from "@/components/ui/analytics-provider"
+import { ogImage } from "@/lib/seo"
 import siteConfig from "@/lib/site.config"
 import "./globals.css"
 
@@ -43,16 +44,15 @@ export const metadata: Metadata = {
     title: siteConfig.seo.title,
     description: siteConfig.seo.description,
     type: "website",
-    images: siteConfig.seo.ogImage
-      ? [{ url: siteConfig.seo.ogImage, width: 1200, height: 630, alt: siteConfig.seo.title }]
-      : undefined,
+    url: siteConfig.seo.canonicalUrl,
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     ...(siteConfig.seo.twitterHandle
       ? { creator: siteConfig.seo.twitterHandle }
       : {}),
-    images: siteConfig.seo.ogImage ? [siteConfig.seo.ogImage] : undefined,
+    images: [ogImage.url],
   },
   robots: siteConfig.seo.noIndex
     ? { index: false, follow: false }

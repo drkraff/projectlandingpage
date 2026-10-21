@@ -4,7 +4,7 @@ Pre-MVP waitlist for **Vela** (pronounced VAY-lah): talk the job, send the quote
 
 A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email.
 
-Public URL until DNS: [https://projectlandingpage.vercel.app](https://projectlandingpage.vercel.app)
+Public site: [https://www.velaquote.com](https://www.velaquote.com) (apex `velaquote.com` redirects to www).
 
 ## Getting started
 
@@ -30,7 +30,7 @@ Intended addresses (pending DNS — not live):
 - `hello@vela.io`
 - `privacy@vela.io`
 
-Do not assume `vela.io` is purchased or pointed. Keep the canonical URL on `https://projectlandingpage.vercel.app` until the owner buys and points a domain and mailbox.
+Canonical, sitemap, robots, and the Open Graph image use `https://www.velaquote.com`. `hello@vela.io` and `privacy@vela.io` are still intended mailboxes on a different domain — do not assume that mail is delivered.
 
 Owner setup (Supabase RLS, Vercel Firewall, domain cutover): [`docs/OWNER-CHECKLIST.md`](docs/OWNER-CHECKLIST.md).
 

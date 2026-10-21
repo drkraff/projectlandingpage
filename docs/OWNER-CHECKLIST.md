@@ -1,6 +1,6 @@
 # Owner checklist
 
-Canonical host stays **https://projectlandingpage.vercel.app** until a domain and mailboxes are purchased and pointed. Do not change `seo.canonicalUrl` before that.
+The live site is **https://www.velaquote.com**. Apex `velaquote.com` redirects to www. `seo.canonicalUrl`, the sitemap, robots, and the Open Graph image already use that origin.
 
 ## 1. Supabase waitlist
 
@@ -11,11 +11,13 @@ Public env (see `.env.example`; never use the service-role key in this app):
 
 Set the same values in the Vercel project for Production and Preview.
 
-RLS on table `waitlist`:
+`docs/supabase-waitlist.sql` is a script to run by hand. It is not a migration, so the repo cannot prove the live database matches it. In the Supabase SQL editor, confirm:
 
-- Allow **anon INSERT only**
-- Do **not** grant anon SELECT, UPDATE, or DELETE
-- Unique constraint on email is fine (API treats duplicates as success)
+- `select relrowsecurity from pg_class where relname = 'waitlist';` is true
+- `select polname, cmd from pg_policies where tablename = 'waitlist';` shows one policy, INSERT, for anon — no SELECT, UPDATE, or DELETE policy
+- `select grantee, privilege_type from information_schema.role_table_grants where table_name = 'waitlist' and grantee in ('anon', 'authenticated');` shows anon INSERT only
+
+The key in Vercel named `NEXT_PUBLIC_SUPABASE_ANON_KEY` must be the anon key, not the service_role key. The service_role key bypasses RLS. It must not be added to this app.
 
 ## 2. Vercel Firewall
 
@@ -25,17 +27,14 @@ The API has an in-memory rate limit. Complement it in production:
 - Rate-limit **POST** `/api/waitlist`
 - Suggested starting point: 8 requests / 10 minutes / IP (matches `lib/rate-limit.ts`)
 
-## 3. Domain cutover (after purchase)
+## 3. Mailboxes
 
-1. Buy the domain and point DNS to Vercel.
-2. Add the domain on the Vercel project; wait until HTTPS is live.
-3. Set up mailboxes **before** treating emails as live:
-   - `hello@vela.io`
-   - `privacy@vela.io`
-4. Then change `seo.canonicalUrl` in `lib/site.config.ts` to the new origin.
-5. Confirm production: title, canonical, OG URL, footer, legal pages, waitlist POST.
+The website domain is live. These addresses are on `vela.io`, not `velaquote.com`, and are still not confirmed as receiving mail:
 
-Until those steps are done, keep canonical on `https://projectlandingpage.vercel.app`. `hello@vela.io` / `privacy@vela.io` are intended addresses only — pending DNS, not live inboxes.
+- `hello@vela.io`
+- `privacy@vela.io`
+
+Set up mailboxes before treating those addresses as live. Do not point canonical back at `projectlandingpage.vercel.app`.
 
 ## 4. Do not ship yet
 
