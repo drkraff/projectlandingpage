@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react"
 import { Play, Volume2, VolumeX } from "lucide-react"
 
+// Served encode is 720×1280 H.264 with faststart. The 1080p source is /demo/vela-demo.mp4.
 const SRC = "/demo/vela-demo-web.mp4"
 const POSTER = "/demo/vela-demo-poster.jpg"
 
