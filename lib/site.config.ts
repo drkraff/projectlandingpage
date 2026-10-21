@@ -25,7 +25,7 @@ const siteConfig: SiteConfig = {
     noIndex: false,
     // Intended mailboxes. Pending DNS — vela.io is not purchased or pointed.
     // These addresses are not live; do not assume mail is received.
-    contactEmail: "hello@vela.io",
+    contactEmail: "ofer@velaquote.com",
     privacyEmail: "privacy@vela.io",
   },
 
