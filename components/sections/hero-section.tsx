@@ -5,6 +5,7 @@ import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { track } from "@vercel/analytics"
 import { Button } from "@/components/ui/button"
+import { HeroDemo } from "@/components/sections/hero-demo"
 import siteConfig from "@/lib/site.config"
 
 function Headline({ text }: { text: string }) {
@@ -25,66 +26,75 @@ export function HeroSection() {
 
   return (
     <section className="relative px-4 pb-16 pt-28 md:px-6 md:pb-24 md:pt-32">
-      <div className="relative mx-auto max-w-5xl">
-        {hero.badge && (
-          <div className="animate-fade-up mb-10" style={{ animationDelay: "0ms" }}>
-            <span className="inline-flex rounded-full border border-border bg-card px-3 py-1 text-sm font-medium text-muted-foreground">
-              {hero.badge}
-            </span>
+      <div className="relative mx-auto grid max-w-5xl lg:grid-cols-[minmax(0,1fr)_minmax(12rem,18.5rem)] lg:items-start lg:gap-x-10">
+        <div className="min-w-0">
+          {hero.badge && (
+            <div className="animate-fade-up mb-10" style={{ animationDelay: "0ms" }}>
+              <span className="inline-flex rounded-full border border-border bg-card px-3 py-1 text-sm font-medium text-muted-foreground">
+                {hero.badge}
+              </span>
+            </div>
+          )}
+
+          <div className="animate-fade-up" style={{ animationDelay: "80ms" }}>
+            <Headline text={hero.headline} />
           </div>
-        )}
 
-        <div className="animate-fade-up" style={{ animationDelay: "80ms" }}>
-          <Headline text={hero.headline} />
-        </div>
-
-        {hero.secondaryCta && (
-          <p
-            className="animate-fade-up mt-6 max-w-xl font-sans text-base leading-relaxed text-muted-foreground md:text-lg"
-            style={{ animationDelay: "140ms" }}
-          >
-            {hero.secondaryCta.label}
-          </p>
-        )}
-
-        <div className="mt-8 flex max-w-3xl flex-col items-start gap-6">
-          <p
-            className="animate-fade-up font-sans text-base leading-relaxed text-pretty text-muted-foreground"
-            style={{ animationDelay: "280ms" }}
-          >
-            {hero.subheadline}
-          </p>
-
-          <div
-            className="animate-fade-up flex flex-wrap items-center gap-5"
-            style={{ animationDelay: "360ms" }}
-          >
-            <Button
-              asChild
-              size="lg"
-              className="h-12 cursor-pointer rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+          {hero.secondaryCta && (
+            <p
+              className="animate-fade-up mt-6 max-w-xl font-sans text-base leading-relaxed text-muted-foreground md:text-lg"
+              style={{ animationDelay: "140ms" }}
             >
-              <Link href={hero.primaryCta.href} onClick={() => track("cta_click", { location: "hero" })}>
-                {hero.primaryCta.label}
-                <ArrowRight className="ms-2 size-4" aria-hidden />
-              </Link>
-            </Button>
+              {hero.secondaryCta.label}
+            </p>
+          )}
+
+          <div className="mt-8 flex max-w-3xl flex-col items-start gap-6">
+            <p
+              className="animate-fade-up font-sans text-base leading-relaxed text-pretty text-muted-foreground"
+              style={{ animationDelay: "280ms" }}
+            >
+              {hero.subheadline}
+            </p>
+
+            <div
+              className="animate-fade-up flex flex-wrap items-center gap-5"
+              style={{ animationDelay: "360ms" }}
+            >
+              <Button
+                asChild
+                size="lg"
+                className="h-12 cursor-pointer rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+              >
+                <Link href={hero.primaryCta.href} onClick={() => track("cta_click", { location: "hero" })}>
+                  {hero.primaryCta.label}
+                  <ArrowRight className="ms-2 size-4" aria-hidden />
+                </Link>
+              </Button>
+            </div>
           </div>
+
+          {hero.socialProofLine && (
+            <p
+              className="animate-fade-in mt-10 max-w-lg font-sans text-sm leading-relaxed text-muted-foreground md:mt-16"
+              style={{ animationDelay: "520ms" }}
+            >
+              {hero.socialProofLine}
+            </p>
+          )}
         </div>
 
-        {hero.socialProofLine && (
-          <p
-            className="animate-fade-in mt-10 max-w-lg font-sans text-sm leading-relaxed text-muted-foreground md:mt-16"
-            style={{ animationDelay: "520ms" }}
-          >
-            {hero.socialProofLine}
-          </p>
-        )}
+        <div
+          className="mx-auto mt-12 w-full min-w-0 max-w-[18.5rem] animate-fade-up lg:mx-0 lg:mt-0 lg:max-w-none"
+          style={{ animationDelay: "180ms" }}
+        >
+          <HeroDemo />
+        </div>
 
-        {/* Hero media — pushed below the fold on larger screens */}
+        {/* Optional configured media stays below the hero copy. */}
         {hero.media && (
           <div
-            className="animate-fade-up mt-20"
+            className="animate-fade-up mt-20 lg:col-span-2"
             style={{ animationDelay: "600ms" }}
           >
             <div className="relative overflow-hidden border border-border/50 bg-card shadow-2xl shadow-black/40">
