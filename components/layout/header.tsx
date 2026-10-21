@@ -63,18 +63,16 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50">
-        <div
-          className={`mx-auto flex max-w-[1400px] items-center justify-between border-b px-6 py-4 backdrop-blur-md transition-all duration-200 md:px-12 lg:px-20 ${
-            scrolled
-              ? "border-border/60 bg-background/95 shadow-sm"
-              : "border-border/40 bg-background/90"
-          }`}
-        >
+      <header
+        className={`fixed inset-x-0 top-1 z-50 bg-background/95 backdrop-blur-md ${
+          scrolled ? "border-b border-border" : ""
+        }`}
+      >
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-2 md:px-6">
           {/* Brand */}
           <Link
             href="/"
-            className="font-heading text-xl tracking-tight text-foreground transition-opacity duration-200 hover:opacity-60"
+            className="inline-flex min-h-11 items-center rounded-full font-sans text-lg font-semibold tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             {name}
           </Link>
@@ -85,7 +83,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-sans text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground transition-all duration-200 hover:tracking-[0.2em] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="inline-flex min-h-11 items-center rounded-full px-2 font-sans text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {link.label}
               </Link>
@@ -97,15 +95,14 @@ export function Header() {
             <ThemeToggle />
             <Button
               asChild
-              size="sm"
-              className="hidden cursor-pointer bg-primary text-primary-foreground transition-colors hover:bg-primary/85 md:inline-flex"
+              className="hidden h-11 cursor-pointer rounded-full bg-primary px-5 font-sans text-sm font-semibold text-primary-foreground hover:bg-primary/90 md:inline-flex"
             >
               <Link href="/#waitlist">{ctaLabel}</Link>
             </Button>
 
             {/* Hamburger — mobile only */}
             <button
-              className="flex cursor-pointer items-center justify-center rounded-none p-1 text-foreground transition-opacity duration-150 hover:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
+              className="flex size-11 cursor-pointer items-center justify-center rounded-full text-foreground hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
@@ -134,15 +131,15 @@ export function Header() {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col border-l border-border bg-background transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-72 flex-col rounded-l-3xl border-l border-border bg-card transition-transform duration-300 ease-in-out md:hidden ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between border-b border-border px-6 py-4">
-          <span className="font-heading text-lg tracking-tight">{name}</span>
+          <span className="font-sans text-lg font-semibold tracking-tight">{name}</span>
           <button
-            className="flex cursor-pointer items-center justify-center p-1 text-muted-foreground transition-opacity duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="flex size-11 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             aria-label="Close menu"
             onClick={() => setMenuOpen(false)}
           >
@@ -156,7 +153,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-sans text-sm font-medium uppercase tracking-[0.14em] text-muted-foreground py-3 border-b border-border/40 transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="rounded-xl px-3 py-3 font-sans text-base font-medium text-foreground transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -168,7 +165,7 @@ export function Header() {
         <div className="mt-auto p-6">
           <Button
             asChild
-            className="w-full cursor-pointer bg-primary text-primary-foreground transition-colors hover:bg-primary/85"
+            className="h-12 w-full cursor-pointer rounded-full bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/90"
           >
             <Link href="/#waitlist" onClick={() => setMenuOpen(false)}>
               {ctaLabel}

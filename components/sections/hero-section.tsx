@@ -3,63 +3,18 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import { motion } from "framer-motion"
 import { track } from "@vercel/analytics"
 import { Button } from "@/components/ui/button"
 import siteConfig from "@/lib/site.config"
 
-function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-      380 - i * 5 * position
-    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-      152 - i * 5 * position
-    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-      684 - i * 5 * position
-    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    width: 0.5 + i * 0.03,
-    duration: 20 + (i % 5) * 2,
-  }))
-
-  return (
-    <div className="absolute inset-0 -z-10 pointer-events-none">
-      <svg className="w-full h-full" viewBox="0 0 696 316" fill="none">
-        {paths.map((path) => (
-          <motion.path
-            key={path.id}
-            d={path.d}
-            stroke="#E84B2B"
-            strokeWidth={path.width}
-            strokeOpacity={0.04 + path.id * 0.007}
-            style={{ willChange: "auto" }}
-            initial={{ pathLength: 0.3, opacity: 0.6 }}
-            animate={{
-              pathLength: 1,
-              opacity: [0.3, 0.6, 0.3],
-              pathOffset: [0, 1, 0],
-            }}
-            transition={{
-              duration: path.duration,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </svg>
-    </div>
-  )
-}
-
-/** Renders headline with the last word in blood-orange italic */
-function EditorialHeadline({ text }: { text: string }) {
+function Headline({ text }: { text: string }) {
   const words = text.trim().split(/\s+/)
   const last = words.pop() ?? ""
   const rest = words.join(" ")
   return (
-    <h1 className="font-heading text-[clamp(2.1rem,7.5vw,7rem)] font-normal leading-[0.9] tracking-[-0.01em] text-foreground">
+    <h1 className="max-w-3xl font-sans text-[2rem] font-semibold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
       {rest && <>{rest} </>}
-      <em className="text-primary">{last}</em>
+      <span className="text-primary">{last}</span>
     </h1>
   )
 }
@@ -69,19 +24,18 @@ export function HeroSection() {
   if (!hero.enabled) return null
 
   return (
-    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pb-14 pt-24 md:pb-20 md:pt-28 md:px-12 lg:px-20">
-      <FloatingPaths position={1} />
-      <FloatingPaths position={-1} />
-
-      <div className="relative">
+    <section className="relative px-4 pb-16 pt-28 md:px-6 md:pb-24 md:pt-32">
+      <div className="relative mx-auto max-w-5xl">
         {hero.badge && (
           <div className="animate-fade-up mb-10" style={{ animationDelay: "0ms" }}>
-            <span className="label-editorial">{hero.badge}</span>
+            <span className="inline-flex rounded-full border border-border bg-card px-3 py-1 text-sm font-medium text-muted-foreground">
+              {hero.badge}
+            </span>
           </div>
         )}
 
         <div className="animate-fade-up" style={{ animationDelay: "80ms" }}>
-          <EditorialHeadline text={hero.headline} />
+          <Headline text={hero.headline} />
         </div>
 
         {hero.secondaryCta && (
@@ -93,13 +47,7 @@ export function HeroSection() {
           </p>
         )}
 
-        <div
-          aria-hidden
-          className="animate-line-expand rule-editorial mt-10 mb-9"
-          style={{ animationDelay: "200ms" }}
-        />
-
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <p
             className="animate-fade-up max-w-lg font-sans text-base leading-relaxed text-muted-foreground"
             style={{ animationDelay: "280ms" }}
@@ -114,7 +62,7 @@ export function HeroSection() {
             <Button
               asChild
               size="lg"
-              className="cursor-pointer bg-primary px-7 text-primary-foreground shadow-none hover:bg-primary/85"
+              className="h-12 cursor-pointer rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
             >
               <Link href={hero.primaryCta.href} onClick={() => track("cta_click", { location: "hero" })}>
                 {hero.primaryCta.label}

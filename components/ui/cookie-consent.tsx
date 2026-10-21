@@ -44,10 +44,10 @@ export function CookieConsent() {
       role="dialog"
       aria-label="Cookie consent"
       aria-live="polite"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 backdrop-blur-md"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-card"
     >
-      <div className="mx-auto flex max-w-[1400px] flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between md:px-12 lg:px-20">
-        <p className="font-sans text-xs leading-relaxed text-muted-foreground">
+      <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between md:px-6">
+        <p className="font-sans text-sm leading-relaxed text-foreground">
           Essential cookies remember your cookie choice. Optional analytics (Vercel) run only if you
           accept.{" "}
           <a
@@ -62,14 +62,14 @@ export function CookieConsent() {
             variant="outline"
             size="sm"
             onClick={decline}
-            className="cursor-pointer rounded-none border-border font-sans text-xs font-medium uppercase tracking-[0.12em]"
+            className="h-11 cursor-pointer rounded-full border-[#6e6e6e] bg-transparent px-4 font-sans text-sm font-medium text-foreground hover:bg-background"
           >
             Decline
           </Button>
           <Button
             size="sm"
             onClick={accept}
-            className="cursor-pointer rounded-none bg-primary font-sans text-xs font-medium uppercase tracking-[0.12em] text-primary-foreground hover:bg-primary/85"
+            className="h-11 cursor-pointer rounded-full bg-primary px-4 font-sans text-sm font-semibold text-primary-foreground hover:bg-primary/90"
           >
             Accept
           </Button>

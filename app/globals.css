@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-display);
+  --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -50,81 +50,85 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* ─── Light editorial mode — warm cream + charcoal + blood orange ───────── */
+/* App surfaces. quoteSnap was not readable from this environment, so these
+   match the phone screenshots: near-black field, raised cards, #E8450A accent.
+   Orange text on white is below AA, so orange controls use near-black text. */
 :root {
-  --background: oklch(0.958 0.018 88);           /* warm cream #F5F0E8    */
-  --foreground: oklch(0.115 0.010 60);           /* near-black charcoal   */
-  --card: oklch(0.975 0.010 90);                 /* lighter cream         */
-  --card-foreground: oklch(0.115 0.010 60);
-  --popover: oklch(0.975 0.010 90);
-  --popover-foreground: oklch(0.115 0.010 60);
-  --primary: oklch(0.593 0.217 34);              /* blood orange #E8450A  */
-  --primary-foreground: oklch(0.975 0.010 90);   /* cream on orange btn   */
-  --secondary: oklch(0.920 0.014 85);            /* muted cream           */
-  --secondary-foreground: oklch(0.115 0.010 60);
-  --muted: oklch(0.920 0.014 85);
-  --muted-foreground: oklch(0.430 0.016 70);     /* medium warm gray      */
-  --accent: oklch(0.920 0.014 85);
-  --accent-foreground: oklch(0.115 0.010 60);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.820 0.022 80);               /* warm tan border       */
-  --input: oklch(0.820 0.022 80);
-  --ring: oklch(0.593 0.217 34);
-  --cta: oklch(0.593 0.217 34);                  /* blood orange          */
-  --cta-foreground: oklch(0.975 0.010 90);
-  --chart-1: oklch(0.593 0.217 34);
-  --chart-2: oklch(0.400 0.080 70);
-  --chart-3: oklch(0.350 0 0);
-  --chart-4: oklch(0.500 0 0);
-  --chart-5: oklch(0.650 0 0);
-  --radius: 0.2rem;                              /* editorial: sharp      */
-  --grain-opacity: 0.025;
-  --sidebar: oklch(0.975 0.010 90);
-  --sidebar-foreground: oklch(0.115 0.010 60);
-  --sidebar-primary: oklch(0.593 0.217 34);
-  --sidebar-primary-foreground: oklch(0.975 0.010 90);
-  --sidebar-accent: oklch(0.920 0.014 85);
-  --sidebar-accent-foreground: oklch(0.115 0.010 60);
-  --sidebar-border: oklch(0.820 0.022 80);
-  --sidebar-ring: oklch(0.593 0.217 34);
+  --background: #111111;
+  --foreground: #ffffff;
+  --card: #1c1c1c;
+  --card-foreground: #ffffff;
+  --popover: #1c1c1c;
+  --popover-foreground: #ffffff;
+  --primary: #e8450a;
+  --primary-foreground: #111111;
+  --secondary: #2a2a2a;
+  --secondary-foreground: #ffffff;
+  --muted: #242424;
+  --muted-foreground: #c8c8c8;
+  --accent: #2a2a2a;
+  --accent-foreground: #ffffff;
+  --destructive: #f07167;
+  --border: #333333;
+  --input: #2a2a2a;
+  --ring: #e8450a;
+  --cta: #e8450a;
+  --cta-foreground: #111111;
+  --chart-1: #e8450a;
+  --chart-2: #c8c8c8;
+  --chart-3: #8a8a8a;
+  --chart-4: #5c5c5c;
+  --chart-5: #2a2a2a;
+  --radius: 1rem;
+  --grain-opacity: 0;
+  color-scheme: dark;
+  --sidebar: #111111;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #e8450a;
+  --sidebar-primary-foreground: #111111;
+  --sidebar-accent: #2a2a2a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #333333;
+  --sidebar-ring: #e8450a;
 }
 
-/* ─── Dark editorial mode — near-black charcoal + blood orange ──────────── */
+/* Same app theme when next-themes sets .dark. */
 .dark {
-  --background: oklch(0.085 0.006 60);           /* near-black charcoal   */
-  --foreground: oklch(0.958 0.018 88);           /* warm cream            */
-  --card: oklch(0.112 0.009 62);                 /* raised charcoal       */
-  --card-foreground: oklch(0.958 0.018 88);
-  --popover: oklch(0.112 0.009 62);
-  --popover-foreground: oklch(0.958 0.018 88);
-  --primary: oklch(0.593 0.217 34);              /* blood orange #E8450A  */
-  --primary-foreground: oklch(0.958 0.018 88);
-  --secondary: oklch(0.152 0.010 65);
-  --secondary-foreground: oklch(0.958 0.018 88);
-  --muted: oklch(0.152 0.010 65);
-  --muted-foreground: oklch(0.558 0.022 72);     /* warm gray             */
-  --accent: oklch(0.152 0.010 65);
-  --accent-foreground: oklch(0.958 0.018 88);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.220 0.012 68);               /* warm dark border      */
-  --input: oklch(0.220 0.012 68);
-  --ring: oklch(0.593 0.217 34);
-  --cta: oklch(0.593 0.217 34);                  /* blood orange          */
-  --cta-foreground: oklch(0.958 0.018 88);
-  --chart-1: oklch(0.593 0.217 34);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --grain-opacity: 0.04;
-  --sidebar: oklch(0.112 0.009 62);
-  --sidebar-foreground: oklch(0.958 0.018 88);
-  --sidebar-primary: oklch(0.593 0.217 34);
-  --sidebar-primary-foreground: oklch(0.958 0.018 88);
-  --sidebar-accent: oklch(0.152 0.010 65);
-  --sidebar-accent-foreground: oklch(0.958 0.018 88);
-  --sidebar-border: oklch(0.220 0.012 68);
-  --sidebar-ring: oklch(0.593 0.217 34);
+  --background: #111111;
+  --foreground: #ffffff;
+  --card: #1c1c1c;
+  --card-foreground: #ffffff;
+  --popover: #1c1c1c;
+  --popover-foreground: #ffffff;
+  --primary: #e8450a;
+  --primary-foreground: #111111;
+  --secondary: #2a2a2a;
+  --secondary-foreground: #ffffff;
+  --muted: #242424;
+  --muted-foreground: #c8c8c8;
+  --accent: #2a2a2a;
+  --accent-foreground: #ffffff;
+  --destructive: #f07167;
+  --border: #333333;
+  --input: #2a2a2a;
+  --ring: #e8450a;
+  --cta: #e8450a;
+  --cta-foreground: #111111;
+  --chart-1: #e8450a;
+  --chart-2: #c8c8c8;
+  --chart-3: #8a8a8a;
+  --chart-4: #5c5c5c;
+  --chart-5: #2a2a2a;
+  --grain-opacity: 0;
+  color-scheme: dark;
+  --sidebar: #111111;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #e8450a;
+  --sidebar-primary-foreground: #111111;
+  --sidebar-accent: #2a2a2a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #333333;
+  --sidebar-ring: #e8450a;
 }
 
 @layer base {
@@ -139,17 +143,29 @@
   }
 }
 
-/* ─── Paper grain noise overlay ─────────────────────────────────────────── */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: var(--grain-opacity, 0.04);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
-  background-repeat: repeat;
+/* Customer-PDF theme: white page, charcoal text, same orange accent. */
+.light {
+  --background: #ffffff;
+  --foreground: #111111;
+  --card: #f6f6f6;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --primary: #e8450a;
+  --primary-foreground: #111111;
+  --secondary: #f0f0f0;
+  --secondary-foreground: #111111;
+  --muted: #f0f0f0;
+  --muted-foreground: #3f3f3f;
+  --accent: #f0f0f0;
+  --accent-foreground: #111111;
+  --destructive: #b42318;
+  --border: #e4e4e4;
+  --input: #e4e4e4;
+  --ring: #e8450a;
+  --cta: #e8450a;
+  --cta-foreground: #111111;
+  color-scheme: light;
 }
 
 /* ─── Editorial keyframe animations ─────────────────────────────────────── */
@@ -186,7 +202,7 @@ body::after {
   }
   /* Editorial section label — tracked uppercase small caps */
   .label-editorial {
-    @apply font-sans text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-primary;
+    @apply font-sans text-sm font-medium text-muted-foreground;
   }
   /* Thin warm horizontal rule */
   .rule-editorial {

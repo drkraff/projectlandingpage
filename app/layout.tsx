@@ -1,19 +1,11 @@
 import type { Metadata } from "next"
-import { DM_Serif_Display, Instrument_Sans } from "next/font/google"
+import { Instrument_Sans } from "next/font/google"
 import { Providers } from "@/components/providers"
 import { CookieConsent } from "@/components/ui/cookie-consent"
 import { AnalyticsProvider } from "@/components/ui/analytics-provider"
 import { ogImage } from "@/lib/seo"
 import siteConfig from "@/lib/site.config"
 import "./globals.css"
-
-const fontDisplay = DM_Serif_Display({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: "400",
-  style: ["normal", "italic"],
-  display: "swap",
-})
 
 const fontSans = Instrument_Sans({
   subsets: ["latin"],
@@ -66,14 +58,15 @@ export default function RootLayout({
     <html
       lang={siteConfig.locale.defaultLocale}
       dir={siteConfig.locale.direction}
-      className={`${fontSans.variable} ${fontDisplay.variable}`}
+      className={fontSans.variable}
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background font-sans antialiased">
+        <div aria-hidden className="fixed inset-x-0 top-0 z-[60] h-1 bg-primary" />
         <Providers>
           <a
             href="#main-content"
-            className="fixed left-4 top-4 z-[9999] -translate-y-20 rounded-none border border-border bg-background px-4 py-2 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-transform focus:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="fixed left-4 top-3 z-[9999] -translate-y-24 rounded-full border border-border bg-card px-4 py-2 font-sans text-sm font-medium text-foreground transition-transform focus:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Skip to content
           </a>

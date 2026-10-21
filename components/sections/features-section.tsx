@@ -28,12 +28,12 @@ export function FeaturesSection() {
   if (!features.enabled) return null
 
   return (
-    <section id="features" className="relative px-6 py-16 md:py-28 md:px-12 lg:px-20">
-      <div className="mx-auto max-w-[1400px]">
-        <Reveal className="mb-14 grid gap-8 md:mb-20 md:grid-cols-[auto_1fr] md:items-end md:gap-16">
-          <div className="flex flex-col gap-4">
+    <section id="features" className="relative px-4 py-16 md:px-6 md:py-24">
+      <div className="mx-auto max-w-5xl">
+        <Reveal className="mb-8 grid gap-4 md:mb-12 md:grid-cols-[1.2fr_1fr] md:items-end md:gap-12">
+          <div className="flex flex-col gap-3">
             <span className="label-editorial">How it works</span>
-            <h2 className="font-heading text-[clamp(1.75rem,4.5vw,3.75rem)] font-normal leading-[0.95] tracking-tight text-foreground">
+            <h2 className="font-sans text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
               {features.headline}
             </h2>
           </div>
@@ -104,34 +104,32 @@ function FeatureItems({ layout }: { layout: FeaturesLayout }) {
 
   if (layout === "list") {
     return (
-      <div className="flex flex-col divide-y divide-border border-y border-border">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item, i) => {
           const Icon = item.icon ? (ICON_MAP[item.icon] ?? Star) : Star
           return (
-            <div
+            <article
               key={item.title}
-              className="group flex items-start gap-8 py-7 transition-colors duration-200 hover:bg-card/30"
+              className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-5"
             >
-              <span className="w-8 shrink-0 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                {String(i + 1).padStart(2, "0")}
+              <span className="flex size-11 items-center justify-center rounded-full bg-primary text-white">
+                <Icon className="size-5" aria-hidden />
               </span>
-              <div className="flex flex-1 items-start gap-5">
-                <Icon className="mt-0.5 size-4 shrink-0 text-muted-foreground" aria-hidden />
-                <div>
-                  <h3 className="mb-1.5 font-sans text-sm font-semibold text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="font-sans text-sm leading-relaxed text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="font-sans text-base font-semibold text-foreground">
+                  {item.title}
+                </h3>
+                <p className="font-sans text-sm leading-relaxed text-muted-foreground">
+                  {item.description}
+                </p>
               </div>
               {item.badge && (
-                <span className="shrink-0 border border-border px-2 py-0.5 font-sans text-[0.65rem] font-semibold uppercase tracking-wider text-muted-foreground">
+                <span className="w-fit rounded-full border border-border px-2.5 py-1 font-sans text-xs font-medium text-muted-foreground">
                   {item.badge}
                 </span>
               )}
-            </div>
+              <span className="sr-only">Step {i + 1}</span>
+            </article>
           )
         })}
       </div>
