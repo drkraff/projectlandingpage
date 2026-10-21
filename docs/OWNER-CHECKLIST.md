@@ -31,7 +31,7 @@ The API has an in-memory rate limit. Complement it in production:
 
 The website domain is live. These addresses are on `vela.io`, not `velaquote.com`, and are still not confirmed as receiving mail:
 
-- `hello@vela.io`
+- `ofer@velaquote.com`
 - `privacy@vela.io`
 
 Set up mailboxes before treating those addresses as live. Do not point canonical back at `projectlandingpage.vercel.app`.

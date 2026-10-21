@@ -27,10 +27,10 @@ Social proof and pricing stay disabled. No invented traction.
 
 Intended addresses (pending DNS — not live):
 
-- `hello@vela.io`
+- `ofer@velaquote.com`
 - `privacy@vela.io`
 
-Canonical, sitemap, robots, and the Open Graph image use `https://www.velaquote.com`. `hello@vela.io` and `privacy@vela.io` are still intended mailboxes on a different domain — do not assume that mail is delivered.
+Canonical, sitemap, robots, and the Open Graph image use `https://www.velaquote.com`. `ofer@velaquote.com` and `privacy@vela.io` are still intended mailboxes on a different domain — do not assume that mail is delivered.
 
 Owner setup (Supabase RLS, Vercel Firewall, domain cutover): [`docs/OWNER-CHECKLIST.md`](docs/OWNER-CHECKLIST.md).
 

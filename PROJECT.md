@@ -23,7 +23,7 @@ https://www.velaquote.com
 Apex `velaquote.com` redirects to www. Canonical, sitemap, robots, and the social card use that origin.
 
 ## Intended email (pending DNS — not live)
-- hello@vela.io
+- ofer@velaquote.com
 - privacy@vela.io
 
 Owner setup (Supabase RLS, Vercel Firewall, domain, mailboxes): `docs/OWNER-CHECKLIST.md`

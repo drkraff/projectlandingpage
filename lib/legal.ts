@@ -4,7 +4,7 @@ import siteConfig from "@/lib/site.config"
 export const EMAILS_PENDING_DNS = true
 
 export const contactEmail =
-  siteConfig.seo.contactEmail ?? "hello@vela.io"
+  siteConfig.seo.contactEmail ?? "ofer@velaquote.com"
 
 export const privacyEmail =
   siteConfig.seo.privacyEmail ?? siteConfig.seo.contactEmail ?? "privacy@vela.io"
