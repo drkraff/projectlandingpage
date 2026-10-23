@@ -6,18 +6,10 @@ const siteConfig: SiteConfig = {
   // -------------------------------------------------------------------------
   seo: {
     siteName: "Vela",
-    title: "Vela — Talk the job. Send the quote before you leave.",
+    title: "Voice to Quote App for Contractors | Vela",
     titleTemplate: "%s | Vela",
     description:
-      "Turn a voice note from the driveway into a clean contractor quote — send by SMS, WhatsApp, or email. Pre-MVP waitlist.",
-    keywords: [
-      "Vela",
-      "contractor quote",
-      "voice note to quote",
-      "on-site estimate",
-      "SMS quote",
-      "WhatsApp quote",
-    ],
+      "Talk the job on site and Vela turns your voice note into a clean quote you can share by WhatsApp or email before you leave. Join the early-access waitlist.",
     // Absolute so og:image / twitter:image do not depend on the request host.
     ogImage: "https://www.velaquote.com/og-image.png",
     // Apex velaquote.com redirects here.
@@ -57,7 +49,7 @@ const siteConfig: SiteConfig = {
     enabled: false,
     headline: "Talk the job. Send the quote before you leave.",
     subheadline:
-      "A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email — so you’re not retyping after tools-down.",
+      "A voice note from the driveway becomes a clean contractor quote — WhatsApp or email (SMS coming) — so you’re not retyping after tools-down.",
     collectEmails: true,
   },
 
@@ -72,8 +64,10 @@ const siteConfig: SiteConfig = {
       enabled: true,
       badge: "Pre-MVP waitlist",
       headline: "Talk the job. Send the quote before you leave.",
+      lead:
+        "Vela is a voice-to-quote app for electricians, plumbers and handymen: record a voice note on site and get a professional quote to send by WhatsApp or email.",
       subheadline:
-        "A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email — so you’re not retyping after tools-down.",
+        "A voice note from the driveway becomes a clean contractor quote — WhatsApp or email (SMS coming) — so you’re not retyping after tools-down.",
       primaryCta: { label: "Join the waitlist", href: "/#waitlist" },
       // Audience line under the headline (not a second CTA).
       secondaryCta: { label: "For owner-operators who quote on-site", href: "/#features" },
@@ -112,7 +106,7 @@ const siteConfig: SiteConfig = {
         {
           icon: "send",
           title: "Send before you leave",
-          description: "SMS, WhatsApp, or email — quote in their hand same visit.",
+          description: "WhatsApp or email (SMS coming) — quote in their hand same visit.",
         },
       ],
     },
@@ -139,12 +133,12 @@ const siteConfig: SiteConfig = {
         {
           question: "What is Vela?",
           answer:
-            "Voice note → professional quote → send by SMS, WhatsApp, or email.",
+            "Voice note → professional quote → send by WhatsApp or email (SMS coming).",
         },
         {
           question: "Who’s it for?",
           answer:
-            "Owner-operators and small crews who quote on-site or right after.",
+            "Electricians, plumbers and handymen — owner-operators and small crews who quote on-site or right after.",
         },
         {
           question: "Is it live?",
@@ -188,6 +182,15 @@ const siteConfig: SiteConfig = {
             { label: "How it works", href: "/#features" },
             { label: "FAQ", href: "/#faq" },
             { label: "Waitlist", href: "/#waitlist" },
+          ],
+        },
+        {
+          heading: "Trades",
+          items: [
+            {
+              label: "Voice to quote for electricians",
+              href: "/voice-to-quote-electricians",
+            },
           ],
         },
       ],

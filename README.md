@@ -2,7 +2,7 @@
 
 Pre-MVP waitlist for **Vela** (pronounced VAY-lah): talk the job, send the quote before you leave.
 
-A voice note from the driveway becomes a clean contractor quote — SMS, WhatsApp, or email.
+A voice note from the driveway becomes a clean contractor quote — WhatsApp or email (SMS coming).
 
 Public site: [https://www.velaquote.com](https://www.velaquote.com) (apex `velaquote.com` redirects to www).
 

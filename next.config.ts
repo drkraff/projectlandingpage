@@ -46,6 +46,24 @@ if (!isDev) {
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
+  // Same host rule as vercel.json. permanent: true is a 308. The host
+  // condition matches only projectlandingpage.vercel.app, so www and
+  // preview hosts are left alone. Apex → www stays a dashboard redirect.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "projectlandingpage.vercel.app",
+          },
+        ],
+        destination: "https://www.velaquote.com/:path*",
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

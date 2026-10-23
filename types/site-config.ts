@@ -84,6 +84,8 @@ export interface HeroConfig {
   badge?: string;
   headline: string;
   subheadline: string;
+  /** Short definition shown under the headline. */
+  lead?: string;
   primaryCta: CtaButton;
   secondaryCta?: CtaButton;
   /** Key social-proof line shown below CTA, e.g. "Trusted by 500+ teams" */
