@@ -11,7 +11,9 @@ Public env (see `.env.example`; never use the service-role key in this app):
 
 Set the same values in the Vercel project for Production and Preview.
 
-`docs/supabase-waitlist.sql` is a script to run by hand. It is not a migration, so the repo cannot prove the live database matches it. In the Supabase SQL editor, confirm:
+`docs/supabase-waitlist.sql` is a script to run by hand. It is not a migration, so the repo cannot prove the live database matches it. If `public.waitlist` already exists, `CREATE TABLE IF NOT EXISTS` will not add the source columns. Run `docs/supabase-waitlist-source.sql` in the Supabase SQL editor before deploying the app that inserts `referrer_host`, `utm_source`, `utm_medium`, `utm_campaign`, and `landing_path`. Without that script, those inserts fail (the API retries with email only on Postgres `42703` or PostgREST `PGRST204`, and the source is dropped).
+
+In the Supabase SQL editor, confirm:
 
 - `select relrowsecurity from pg_class where relname = 'waitlist';` is true
 - `select polname, cmd from pg_policies where tablename = 'waitlist';` shows one policy, INSERT, for anon — no SELECT, UPDATE, or DELETE policy

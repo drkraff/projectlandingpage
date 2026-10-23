@@ -8,6 +8,7 @@ import {
   normalizeWaitlistEmail,
   readLimitedJson,
 } from "@/lib/waitlist-request"
+import { isUndefinedColumnError, sanitizeWaitlistSource } from "@/lib/waitlist-source"
 import siteConfig from "@/lib/site.config"
 
 export const runtime = "nodejs"
@@ -72,14 +73,23 @@ export async function POST(req: NextRequest) {
     }
 
     const table = siteConfig.sections.waitlist.supabaseTable ?? "waitlist"
-    const { error } = await supabase
-      .from(table)
-      .insert({ email })
+    const source = sanitizeWaitlistSource(payload)
+    const { error } = await supabase.from(table).insert({ email, ...source })
 
     if (error) {
       // Unique violation — already signed up. Do not reveal that.
       if (error.code === "23505") {
         return jsonOk()
+      }
+      // Columns from docs/supabase-waitlist-source.sql are not there yet.
+      // Postgres reports undefined_column (42703). PostgREST reports PGRST204
+      // when the column is missing from the schema cache. Retry email only.
+      if (Object.keys(source).length > 0 && isUndefinedColumnError(error)) {
+        console.error("Waitlist source columns missing; stored email only")
+        const retry = await supabase.from(table).insert({ email })
+        if (!retry.error || retry.error.code === "23505") {
+          return jsonOk()
+        }
       }
       console.error("Waitlist insert failed")
       return jsonError(GENERIC_ERROR, 500)
