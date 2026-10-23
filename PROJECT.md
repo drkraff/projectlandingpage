@@ -13,9 +13,12 @@ Supabase (waitlist), next-themes (dark/light)
 
 ## Waitlist
 Public signup uses the anon key only. Apply `docs/supabase-waitlist.sql` so RLS
-allows anon INSERT and nothing else. Duplicate emails (unique violation 23505)
-are treated as success in `/api/waitlist`. Missing/invalid Supabase env returns
-503 without leaking a stack.
+allows anon INSERT and nothing else. If the table already exists, run
+`docs/supabase-waitlist-source.sql` before deploying — inserts that include the
+source columns fail until those columns exist. Duplicate emails (unique
+violation 23505) are treated as success in `/api/waitlist`. A missing source
+column (Postgres 42703 or PostgREST PGRST204) retries the insert with email
+only. Missing/invalid Supabase env returns 503 without leaking a stack.
 
 ## Public URL
 https://www.velaquote.com
