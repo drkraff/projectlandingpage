@@ -10,8 +10,16 @@ export const ogImage = {
   alt: siteConfig.seo.title,
 }
 
+type SocialCopy = {
+  title?: string
+  description?: string
+}
+
 /** Page-level openGraph replaces the layout object, so every page must repeat the image. */
-export function pageSocialMetadata(pathname: string): Pick<Metadata, "alternates" | "openGraph" | "twitter"> {
+export function pageSocialMetadata(
+  pathname: string,
+  social?: SocialCopy,
+): Pick<Metadata, "alternates" | "openGraph" | "twitter"> {
   const canonical =
     pathname === "/" ? origin : new URL(pathname, origin).href.replace(/\/$/, "")
 
@@ -22,10 +30,14 @@ export function pageSocialMetadata(pathname: string): Pick<Metadata, "alternates
       siteName: siteConfig.seo.siteName,
       type: "website",
       images: [ogImage],
+      ...(social?.title ? { title: social.title } : {}),
+      ...(social?.description ? { description: social.description } : {}),
     },
     twitter: {
       card: "summary_large_image",
       images: [ogImage.url],
+      ...(social?.title ? { title: social.title } : {}),
+      ...(social?.description ? { description: social.description } : {}),
     },
   }
 }

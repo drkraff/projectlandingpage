@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     template: siteConfig.seo.titleTemplate ?? "%s",
   },
   description: siteConfig.seo.description,
-  keywords: siteConfig.seo.keywords,
   metadataBase: siteConfig.seo.canonicalUrl
     ? new URL(siteConfig.seo.canonicalUrl)
     : undefined,

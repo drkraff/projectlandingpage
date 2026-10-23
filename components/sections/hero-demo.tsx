@@ -114,6 +114,7 @@ export function HeroDemo() {
           loop
           playsInline
           preload="metadata"
+          title="Demo of Vela turning a voice note into a contractor quote"
           aria-label="Demo of Vela turning a voice note into a contractor quote"
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}

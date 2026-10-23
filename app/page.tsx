@@ -7,11 +7,20 @@ import { PricingSection } from "@/components/sections/pricing-section"
 import { FaqSection } from "@/components/sections/faq-section"
 import { WaitlistSection } from "@/components/sections/waitlist-section"
 import { FooterSection } from "@/components/sections/footer-section"
+import { JsonLd } from "@/components/seo/json-ld"
 import { pageSocialMetadata } from "@/lib/seo"
+import { homeJsonLd } from "@/lib/structured-data"
 import siteConfig from "@/lib/site.config"
 import type { Metadata } from "next"
 
-export const metadata: Metadata = pageSocialMetadata("/")
+export const metadata: Metadata = {
+  title: { absolute: siteConfig.seo.title },
+  description: siteConfig.seo.description,
+  ...pageSocialMetadata("/", {
+    title: siteConfig.seo.title,
+    description: siteConfig.seo.description,
+  }),
+}
 
 export default function Home() {
   // Coming-soon mode replaces the full landing page
@@ -21,6 +30,7 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd data={homeJsonLd()} />
       <Header />
       <main id="main-content">
         <HeroSection />

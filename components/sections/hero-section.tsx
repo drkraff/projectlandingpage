@@ -40,6 +40,15 @@ export function HeroSection() {
             <Headline text={hero.headline} />
           </div>
 
+          {hero.lead && (
+            <p
+              className="animate-fade-up mt-6 max-w-2xl font-sans text-base leading-relaxed text-pretty text-foreground md:text-lg"
+              style={{ animationDelay: "140ms" }}
+            >
+              {hero.lead}
+            </p>
+          )}
+
           {hero.secondaryCta && (
             <p
               className="animate-fade-up mt-6 max-w-xl font-sans text-base leading-relaxed text-muted-foreground md:text-lg"

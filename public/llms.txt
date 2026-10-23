@@ -1,0 +1,11 @@
+# Vela
+
+Vela is a voice-to-quote app. Record a voice note on site and Vela turns it into a professional quote you can share by WhatsApp or email. SMS is not live yet.
+
+Who it's for: electricians, plumbers and handymen, and other owner-operators who quote on site.
+
+Status: pre-launch waitlist. Vela is not live yet. Join the early-access waitlist and Vela will email when it is ready to try.
+
+https://www.velaquote.com
+https://www.velaquote.com/voice-to-quote-electricians
+https://www.velaquote.com/#waitlist

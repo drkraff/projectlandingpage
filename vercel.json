@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "projectlandingpage.vercel.app"
+        }
+      ],
+      "destination": "https://www.velaquote.com/:path*",
+      "permanent": true
+    }
+  ]
+}
