@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { HowItWorksPanels, QuoteBeforeAfter } from "@/components/marketing-art"
 import { Reveal } from "@/components/ui/reveal"
 import {
   Zap, Shield, Sliders, BarChart2, Plug, Headphones,
@@ -42,6 +43,10 @@ export function FeaturesSection() {
               {features.subheadline}
             </p>
           )}
+        </Reveal>
+
+        <Reveal delay={80} className="mb-8 md:mb-12">
+          <QuoteBeforeAfter />
         </Reveal>
 
         {/* Feature items */}
@@ -104,35 +109,7 @@ function FeatureItems({ layout }: { layout: FeaturesLayout }) {
 
   if (layout === "list") {
     return (
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((item, i) => {
-          const Icon = item.icon ? (ICON_MAP[item.icon] ?? Star) : Star
-          return (
-            <article
-              key={item.title}
-              className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-5"
-            >
-              <span className="flex size-11 items-center justify-center rounded-full bg-primary text-white">
-                <Icon className="size-5" aria-hidden />
-              </span>
-              <div className="flex flex-col gap-2">
-                <h3 className="font-sans text-base font-semibold text-foreground">
-                  {item.title}
-                </h3>
-                <p className="font-sans text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-              {item.badge && (
-                <span className="w-fit rounded-full border border-border px-2.5 py-1 font-sans text-xs font-medium text-muted-foreground">
-                  {item.badge}
-                </span>
-              )}
-              <span className="sr-only">Step {i + 1}</span>
-            </article>
-          )
-        })}
-      </div>
+      <HowItWorksPanels descriptions={items.map((item) => item.description)} />
     )
   }
 
