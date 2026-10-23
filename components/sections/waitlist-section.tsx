@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import { track } from "@vercel/analytics"
-import { ArrowRight, CheckCircle2, Loader2, Lock } from "lucide-react"
+import { ArrowRight, Loader2, Lock } from "lucide-react"
+import { WaitlistJoinedArt } from "@/components/marketing-art"
 import { Reveal } from "@/components/ui/reveal"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -81,8 +82,8 @@ export function WaitlistSection() {
           {/* Right — form */}
           <Reveal delay={150} className="flex min-w-0 flex-col gap-4 rounded-2xl border border-border bg-card p-5 sm:p-6">
             {status === "success" ? (
-              <div className="flex items-center gap-4 rounded-xl border border-border bg-background p-5" role="status">
-                <CheckCircle2 className="size-5 shrink-0 text-primary" aria-hidden />
+              <div className="flex flex-col items-center gap-4 rounded-xl border border-border bg-background p-5 sm:flex-row sm:items-center" role="status">
+                <WaitlistJoinedArt />
                 <p className="font-sans text-sm font-medium text-foreground">
                   {waitlist.successMessage}
                 </p>

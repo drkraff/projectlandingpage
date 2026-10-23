@@ -3,11 +3,14 @@ import siteConfig from "@/lib/site.config"
 
 const origin = siteConfig.seo.canonicalUrl ?? "https://www.velaquote.com"
 
+const configuredOgImage = siteConfig.seo.ogImage ?? "/og-image.png"
+
 export const ogImage = {
-  url: siteConfig.seo.ogImage ?? `${origin}/og-image.png`,
+  url: new URL(configuredOgImage, `${origin}/`).href,
   width: 1200,
   height: 630,
-  alt: siteConfig.seo.title,
+  alt: "Vela: turn a voice note into a professional quote",
+  type: "image/png",
 }
 
 type SocialCopy = {
@@ -35,7 +38,7 @@ export function pageSocialMetadata(
     },
     twitter: {
       card: "summary_large_image",
-      images: [ogImage.url],
+      images: [ogImage],
       ...(social?.title ? { title: social.title } : {}),
       ...(social?.description ? { description: social.description } : {}),
     },

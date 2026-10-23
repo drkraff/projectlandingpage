@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { FaqTradeMarks } from "@/components/marketing-art"
 import { Reveal } from "@/components/ui/reveal"
 import {
   Accordion,
@@ -52,6 +53,7 @@ export function FaqSection() {
                 </AccordionTrigger>
                 <AccordionContent className="pb-6 font-sans text-sm leading-relaxed text-muted-foreground">
                   {item.answer}
+                  <FaqTradeMarks question={item.question} />
                 </AccordionContent>
               </AccordionItem>
             ))}

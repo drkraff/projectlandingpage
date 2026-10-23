@@ -95,17 +95,17 @@ const siteConfig: SiteConfig = {
       items: [
         {
           icon: "mic",
-          title: "Talk it on site",
+          title: "Talk: describe the job in a voice note",
           description: "Capture the job as a voice note while you’re still there.",
         },
         {
           icon: "file-text",
-          title: "Get a clean quote",
+          title: "Review: Vela turns it into an itemized quote",
           description: "Turn that note into a professional quote you can review.",
         },
         {
           icon: "send",
-          title: "Send before you leave",
+          title: "Send: text, WhatsApp or email it to the customer",
           description: "WhatsApp or email (SMS coming) — quote in their hand same visit.",
         },
       ],

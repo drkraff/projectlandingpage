@@ -5,6 +5,7 @@ import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { track } from "@vercel/analytics"
 import { Button } from "@/components/ui/button"
+import { TradeMarks } from "@/components/marketing-art"
 import { HeroDemo } from "@/components/sections/hero-demo"
 import siteConfig from "@/lib/site.config"
 
@@ -41,12 +42,12 @@ export function HeroSection() {
           </div>
 
           {hero.lead && (
-            <p
-              className="animate-fade-up mt-6 max-w-2xl font-sans text-base leading-relaxed text-pretty text-foreground md:text-lg"
-              style={{ animationDelay: "140ms" }}
-            >
-              {hero.lead}
-            </p>
+            <div className="animate-fade-up mt-6 max-w-2xl" style={{ animationDelay: "140ms" }}>
+              <p className="font-sans text-base leading-relaxed text-pretty text-foreground md:text-lg">
+                {hero.lead}
+              </p>
+              <TradeMarks eager className="mt-5" />
+            </div>
           )}
 
           {hero.secondaryCta && (
