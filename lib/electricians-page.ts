@@ -42,7 +42,7 @@ export const electriciansPage = {
     {
       question: "Is Vela live?",
       answer:
-        "It’s pre-launch. Join the waitlist and we’ll email you when it’s ready to try.",
+        "Vela is pre-launch. Join the waitlist and we’ll email you when it’s ready to try.",
     },
     {
       question: "Do I have to type anything?",

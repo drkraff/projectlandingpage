@@ -3,6 +3,7 @@ import { Instrument_Sans } from "next/font/google"
 import { Providers } from "@/components/providers"
 import { CookieConsent } from "@/components/ui/cookie-consent"
 import { AnalyticsProvider } from "@/components/ui/analytics-provider"
+import { WaitlistSourceCapture } from "@/components/waitlist-source-capture"
 import { ogImage } from "@/lib/seo"
 import siteConfig from "@/lib/site.config"
 import "./globals.css"
@@ -63,6 +64,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans antialiased">
         <div aria-hidden className="fixed inset-x-0 top-0 z-[60] h-1 bg-primary" />
         <Providers>
+          <WaitlistSourceCapture />
           <a
             href="#main-content"
             className="fixed left-4 top-3 z-[9999] -translate-y-24 rounded-full border border-border bg-card px-4 py-2 font-sans text-sm font-medium text-foreground transition-transform focus:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
