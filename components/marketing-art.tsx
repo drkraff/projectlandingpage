@@ -34,25 +34,21 @@ export function HowItWorksPanels({
   descriptions?: readonly string[]
 }) {
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
       {howItWorksPanels.map((panel, index) => (
-        <article
-          key={panel.src}
-          className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-5"
-        >
+        <article key={panel.src} className="flex flex-col gap-4">
           <figure className="flex flex-col gap-3">
-            <div className="overflow-hidden rounded-xl border border-border bg-white">
-              <Image
-                src={panel.src}
-                alt={panel.alt}
-                width={panel.width}
-                height={panel.height}
-                sizes={panelSizes}
-                loading="lazy"
-                className="h-auto w-full"
-                style={{ width: "100%", height: "auto" }}
-              />
-            </div>
+            <Image
+              src={panel.src}
+              alt={panel.alt}
+              width={panel.width}
+              height={panel.height}
+              sizes={panelSizes}
+              loading="lazy"
+              unoptimized
+              className="h-auto w-full"
+              style={{ width: "100%", height: "auto" }}
+            />
             <figcaption>
               <h3 className="font-sans text-base font-semibold leading-snug text-foreground">
                 {panel.caption}
@@ -90,22 +86,20 @@ export function TradeMarks({
         <li
           key={trade.id}
           className={cn(
-            "inline-flex items-center gap-2 rounded-full border border-border bg-card",
-            besideLabel ? "py-1 pe-3 ps-1" : "p-1",
+            "inline-flex items-center gap-2.5 rounded-full border border-border",
+            besideLabel ? "py-1 pe-3 ps-1.5" : "p-1",
           )}
         >
-          <span className="flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white">
-            <Image
-              src={trade.src}
-              alt={besideLabel ? "" : trade.name}
-              width={trade.width}
-              height={trade.height}
-              sizes="32px"
-              loading={eager ? "eager" : "lazy"}
-              className="size-8"
-              style={{ width: "2rem", height: "2rem" }}
-            />
-          </span>
+          <Image
+            src={trade.src}
+            alt={besideLabel ? "" : trade.name}
+            width={40}
+            height={40}
+            sizes="40px"
+            loading={eager ? "eager" : "lazy"}
+            className="size-10 shrink-0"
+            style={{ width: "2.5rem", height: "2.5rem" }}
+          />
           {besideLabel ? (
             <span className="font-sans text-sm font-medium text-foreground">{trade.label}</span>
           ) : null}
@@ -128,35 +122,32 @@ export function TradeIcon({
 }) {
   const trade = tradeById(id)
   return (
-    <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white">
-      <Image
-        src={trade.src}
-        alt={besideLabel ? "" : trade.name}
-        width={trade.width}
-        height={trade.height}
-        sizes="24px"
-        loading={eager ? "eager" : "lazy"}
-        className={className ?? "size-6"}
-        style={{ width: "1.5rem", height: "1.5rem" }}
-      />
-    </span>
+    <Image
+      src={trade.src}
+      alt={besideLabel ? "" : trade.name}
+      width={40}
+      height={40}
+      sizes="40px"
+      loading={eager ? "eager" : "lazy"}
+      className={className ?? "size-10 shrink-0"}
+      style={{ width: "2.5rem", height: "2.5rem" }}
+    />
   )
 }
 
 export function WaitlistJoinedArt() {
   return (
-    <div className="mx-auto w-40 shrink-0 overflow-hidden rounded-xl border border-border bg-white sm:mx-0">
-      <Image
-        src={waitlistJoined.src}
-        alt=""
-        width={waitlistJoined.width}
-        height={waitlistJoined.height}
-        sizes="160px"
-        loading="lazy"
-        className="h-auto w-full"
-        style={{ width: "100%", height: "auto" }}
-      />
-    </div>
+    <Image
+      src={waitlistJoined.src}
+      alt=""
+      width={waitlistJoined.width}
+      height={waitlistJoined.height}
+      sizes="208px"
+      loading="lazy"
+      unoptimized
+      className="mx-auto h-auto w-52 shrink-0 sm:mx-0"
+      style={{ width: "13rem", height: "auto" }}
+    />
   )
 }
 

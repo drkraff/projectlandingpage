@@ -1,26 +1,28 @@
-/** Cropped marketing art. App screens in public/illustrations/app stay unused here. */
+/** Line-art marketing images. Transparent art sits on the #111111 page.
+ *  App screens in public/illustrations/app stay unused here.
+ *  The hero demo and quote-before-after image are separate. */
 
 export const howItWorksPanels = [
   {
     src: "/illustrations/how-it-works-talk.webp",
-    width: 376,
-    height: 457,
+    width: 2048,
+    height: 1536,
     caption: "Talk: describe the job in a voice note",
-    alt: "Contractor describing a job in a voice note",
+    alt: "Talk: describe the job in a voice note",
   },
   {
     src: "/illustrations/how-it-works-review.webp",
-    width: 376,
-    height: 457,
+    width: 2048,
+    height: 1536,
     caption: "Review: Vela turns it into an itemized quote",
-    alt: "Hand holding an itemized quote ready to review",
+    alt: "Review: Vela turns it into an itemized quote",
   },
   {
     src: "/illustrations/how-it-works-send.webp",
-    width: 376,
-    height: 457,
+    width: 2048,
+    height: 1536,
     caption: "Send: text, WhatsApp or email it to the customer",
-    alt: "Quote sent to the customer and marked approved",
+    alt: "Send: text, WhatsApp or email it to the customer",
   },
 ] as const
 
@@ -33,8 +35,8 @@ export const quoteBeforeAfter = {
 
 export const waitlistJoined = {
   src: "/illustrations/waitlist-joined.webp",
-  width: 784,
-  height: 1168,
+  width: 2048,
+  height: 2147,
 } as const
 
 export const trades = [
@@ -42,25 +44,25 @@ export const trades = [
     id: "electrician",
     name: "Electrician",
     label: "Electricians",
-    src: "/illustrations/icon-electrician.webp",
-    width: 512,
-    height: 512,
+    src: "/illustrations/icon-electrician.svg",
+    width: 24,
+    height: 24,
   },
   {
     id: "plumber",
     name: "Plumber",
     label: "Plumbers",
-    src: "/illustrations/icon-plumber.webp",
-    width: 512,
-    height: 512,
+    src: "/illustrations/icon-plumber.svg",
+    width: 24,
+    height: 24,
   },
   {
     id: "handyman",
     name: "Handyman",
     label: "Handymen",
-    src: "/illustrations/icon-handyman.webp",
-    width: 512,
-    height: 512,
+    src: "/illustrations/icon-handyman.svg",
+    width: 24,
+    height: 24,
   },
 ] as const
 
