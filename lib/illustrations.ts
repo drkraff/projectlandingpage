@@ -1,6 +1,6 @@
 /** Line-art marketing images. Transparent art sits on the #111111 page.
  *  App screens in public/illustrations/app stay unused here.
- *  The hero demo and quote-before-after image are separate. */
+ *  The hero demo is separate; quote-before-after uses the same line-art set. */
 
 export const howItWorksPanels = [
   {
@@ -28,9 +28,9 @@ export const howItWorksPanels = [
 
 export const quoteBeforeAfter = {
   src: "/illustrations/quote-before-after.webp",
-  width: 1168,
-  height: 784,
-  alt: "Messy paper notes turned into a clean, approved quote",
+  width: 2048,
+  height: 847,
+  alt: "Messy paper estimates turned into one clean quote",
 } as const
 
 export const waitlistJoined = {

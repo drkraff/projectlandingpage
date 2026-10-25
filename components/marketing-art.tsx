@@ -13,7 +13,7 @@ const panelSizes = "(min-width: 1024px) 320px, (min-width: 640px) 45vw, 90vw"
 
 export function QuoteBeforeAfter({ className }: { className?: string }) {
   return (
-    <figure className={cn("overflow-hidden rounded-2xl border border-border bg-white", className)}>
+    <figure className={cn("mx-auto max-w-5xl", className)}>
       <Image
         src={quoteBeforeAfter.src}
         alt={quoteBeforeAfter.alt}
