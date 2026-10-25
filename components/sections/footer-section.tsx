@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import { TradeIcon } from "@/components/marketing-art"
 import { Github, Twitter, Linkedin, Youtube, Instagram, type LucideProps } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"
 import siteConfig from "@/lib/site.config"
@@ -95,8 +96,11 @@ export function FooterSection() {
                         {...(item.external
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}
-                        className="inline-flex min-h-11 items-center font-sans text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:underline md:min-h-0 md:py-1"
+                        className="inline-flex min-h-11 items-center gap-2 font-sans text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground focus-visible:outline-none focus-visible:underline md:min-h-0 md:py-1"
                       >
+                        {item.href === "/voice-to-quote-electricians" ? (
+                          <TradeIcon id="electrician" besideLabel />
+                        ) : null}
                         {item.label}
                       </Link>
                     </li>

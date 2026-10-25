@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     ...(siteConfig.seo.twitterHandle
       ? { creator: siteConfig.seo.twitterHandle }
       : {}),
-    images: [ogImage.url],
+    images: [ogImage],
   },
   robots: siteConfig.seo.noIndex
     ? { index: false, follow: false }

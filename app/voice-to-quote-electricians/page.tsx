@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowRight, Check, FileText, Mic, Send } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 import { Header } from "@/components/layout/header"
+import { FaqTradeMarks, HowItWorksPanels, QuoteBeforeAfter, TradeMarks } from "@/components/marketing-art"
 import { FooterSection } from "@/components/sections/footer-section"
 import { JsonLd } from "@/components/seo/json-ld"
 import { Reveal } from "@/components/ui/reveal"
@@ -27,8 +28,6 @@ export const metadata: Metadata = {
   }),
 }
 
-const stepIcons = [Mic, FileText, Send]
-
 function Headline({ text }: { text: string }) {
   const words = text.trim().split(/\s+/)
   const last = words.pop() ?? ""
@@ -49,10 +48,13 @@ export default function ElectriciansPage() {
       <main id="main-content">
         <section className="relative px-4 pb-16 pt-28 md:px-6 md:pb-24 md:pt-32">
           <div className="mx-auto flex max-w-5xl flex-col">
-            <div className="animate-fade-up mb-10">
+            <div className="animate-fade-up mb-6">
               <span className="inline-flex rounded-full border border-border bg-card px-3 py-1 text-sm font-medium text-muted-foreground">
                 Pre-MVP waitlist
               </span>
+            </div>
+            <div className="animate-fade-up mb-10" style={{ animationDelay: "40ms" }}>
+              <TradeMarks ids={["electrician"]} eager />
             </div>
             <div className="animate-fade-up" style={{ animationDelay: "80ms" }}>
               <Headline text={page.h1} />
@@ -78,31 +80,11 @@ export default function ElectriciansPage() {
                 How it works
               </h2>
             </Reveal>
+            <Reveal delay={80} className="mb-8 md:mb-12">
+              <QuoteBeforeAfter />
+            </Reveal>
             <Reveal delay={150}>
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {page.steps.map((step, index) => {
-                  const Icon = stepIcons[index] ?? Mic
-                  return (
-                    <article
-                      key={step.title}
-                      className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-5"
-                    >
-                      <span className="flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                        <Icon className="size-5" aria-hidden />
-                      </span>
-                      <div className="flex flex-col gap-2">
-                        <h3 className="font-sans text-base font-semibold text-foreground">
-                          {step.title}
-                        </h3>
-                        <p className="font-sans text-sm leading-relaxed text-muted-foreground">
-                          {step.description}
-                        </p>
-                      </div>
-                      <span className="sr-only">Step {index + 1}</span>
-                    </article>
-                  )
-                })}
-              </div>
+              <HowItWorksPanels descriptions={page.steps.map((step) => step.description)} />
             </Reveal>
           </div>
         </section>
@@ -167,6 +149,7 @@ export default function ElectriciansPage() {
                     </AccordionTrigger>
                     <AccordionContent className="pb-6 font-sans text-sm leading-relaxed text-muted-foreground">
                       {item.answer}
+                      <FaqTradeMarks question={item.question} />
                     </AccordionContent>
                   </AccordionItem>
                 ))}
