@@ -16,6 +16,9 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000).
 
 Copy `.env.example` to `.env.local` and set the public Supabase keys if you want waitlist signups to persist.
+Set `CRON_SECRET` on the Vercel project to a long random value.
+Vercel Cron sends it as `Authorization: Bearer <CRON_SECRET>` to `GET /api/cron/keepalive` on `0 6 * * *` UTC.
+Until that variable is set, the route returns 401 and does not query Supabase.
 
 ## Content
 
