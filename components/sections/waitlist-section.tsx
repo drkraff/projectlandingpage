@@ -8,6 +8,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import siteConfig from "@/lib/site.config"
+import {
+  captureWaitlistSourceFromWindow,
+  readWaitlistSourceFromWindow,
+} from "@/lib/waitlist-source"
 
 type FormStatus = "idle" | "loading" | "success" | "error"
 
@@ -25,10 +29,15 @@ export function WaitlistSection() {
     setStatus("loading")
     setErrorMsg("")
     try {
+      captureWaitlistSourceFromWindow()
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, website }),
+        body: JSON.stringify({
+          email,
+          website,
+          ...readWaitlistSourceFromWindow(),
+        }),
       })
       const data = await res.json() as { error?: string }
       if (!res.ok) {
