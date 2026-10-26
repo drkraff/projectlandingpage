@@ -11,5 +11,11 @@
       "destination": "https://www.velaquote.com/:path*",
       "permanent": true
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/keepalive",
+      "schedule": "0 6 * * *"
+    }
   ]
 }
