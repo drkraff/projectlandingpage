@@ -1,11 +1,14 @@
 import type { Metadata } from "next"
 import siteConfig from "@/lib/site.config"
+import { legalDocument } from "@/lib/indexed-pages"
 import { pageSocialMetadata } from "@/lib/seo"
 import { contactEmail, privacyEmail, PENDING_DNS_NOTE, EMAILS_PENDING_DNS } from "@/lib/legal"
 
+const doc = legalDocument("privacy")
+
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  ...pageSocialMetadata("/privacy"),
+  title: doc.title,
+  ...pageSocialMetadata(doc.path, { description: doc.description }),
 }
 
 const updated = "September 20, 2026"

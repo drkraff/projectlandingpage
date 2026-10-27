@@ -14,14 +14,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { electriciansPage } from "@/lib/electricians-page"
+import { electriciansBreadcrumb } from "@/lib/indexed-pages"
 import { faqPageJsonLd } from "@/lib/structured-data"
-import { pageSocialMetadata } from "@/lib/seo"
+import { pageSocialMetadata, siteOrigin } from "@/lib/seo"
 
 const page = electriciansPage
 
 export const metadata: Metadata = {
   title: { absolute: page.title },
-  description: page.description,
   ...pageSocialMetadata(page.path, {
     title: page.title,
     description: page.description,
@@ -44,6 +44,7 @@ export default function ElectriciansPage() {
   return (
     <>
       <JsonLd data={faqPageJsonLd(page.faq)} />
+      <JsonLd data={electriciansBreadcrumb(siteOrigin, page.path)} />
       <Header />
       <main id="main-content">
         <section className="relative px-4 pb-16 pt-28 md:px-6 md:pb-24 md:pt-32">
@@ -58,6 +59,11 @@ export default function ElectriciansPage() {
             </div>
             <div className="animate-fade-up" style={{ animationDelay: "80ms" }}>
               <Headline text={page.h1} />
+            </div>
+            <div className="animate-fade-up mt-6 max-w-2xl">
+              <p className="font-sans text-base leading-relaxed text-pretty text-foreground md:text-lg">
+                {page.lead}
+              </p>
             </div>
             <div className="animate-fade-up mt-10 max-w-2xl" style={{ animationDelay: "160ms" }}>
               <h2 className="font-sans text-2xl font-semibold leading-tight tracking-tight text-foreground sm:text-3xl">

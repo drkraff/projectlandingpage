@@ -3,6 +3,8 @@ export const electriciansPage = {
   title: "Voice to Quote App for Electricians | Vela",
   description:
     "Walk the panel, talk the job, and send a clean quote before you leave the driveway. Vela turns your voice note into a quote. Join the waitlist.",
+  lead:
+    "Vela is a voice-to-quote app for electricians, plumbers and handymen: you describe the job in a voice note on site, and Vela turns it into a professional quote you can send by WhatsApp or email before you leave.",
   h1: "Talk the job. Send the electrical quote before you leave.",
   problem: {
     heading: "Stop writing quotes at the kitchen table",

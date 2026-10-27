@@ -15,7 +15,6 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: { absolute: siteConfig.seo.title },
-  description: siteConfig.seo.description,
   ...pageSocialMetadata("/", {
     title: siteConfig.seo.title,
     description: siteConfig.seo.description,
@@ -23,7 +22,6 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  // Coming-soon mode replaces the full landing page
   if (siteConfig.comingSoon.enabled) {
     return <ComingSoonSection />
   }
