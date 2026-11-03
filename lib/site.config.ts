@@ -9,7 +9,7 @@ const siteConfig: SiteConfig = {
     title: "Voice to Quote App for Contractors | Vela",
     titleTemplate: "%s | Vela",
     description:
-      "Talk the job on site and Vela turns your voice note into a clean quote you can share by WhatsApp or email before you leave. Join the early-access waitlist.",
+      "Talk the job on site and Vela turns your voice note into a clean quote you can share by WhatsApp or email before you leave. Join the pre-launch waitlist.",
     // Absolute so og:image / twitter:image do not depend on the request host.
     ogImage: "https://www.velaquote.com/og-image.png",
     // Apex velaquote.com redirects here.

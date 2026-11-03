@@ -13,7 +13,7 @@ const lead =
   "Vela is a voice-to-quote app for electricians, plumbers and handymen: you describe the job in a voice note on site, and Vela turns it into a professional quote you can send by WhatsApp or email before you leave."
 
 const homeDescription =
-  "Talk the job on site and Vela turns your voice note into a clean quote you can share by WhatsApp or email before you leave. Join the early-access waitlist."
+  "Talk the job on site and Vela turns your voice note into a clean quote you can share by WhatsApp or email before you leave. Join the pre-launch waitlist."
 
 const privacyDescription =
   "How Vela collects, uses and protects your data. The only personal data this waitlist site collects is the email address you submit."
@@ -42,6 +42,7 @@ describe("indexed page copy", () => {
       "Vela is pre-launch. Join the waitlist and we’ll email you when it’s ready to try.",
     )
     assert.equal(siteConfig.seo.description, homeDescription)
+    assert.ok(homeDescription.length <= 160)
   })
 
   it("describes the legal pages without the home sentence", () => {
