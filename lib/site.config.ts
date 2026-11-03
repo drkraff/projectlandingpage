@@ -133,7 +133,7 @@ const siteConfig: SiteConfig = {
         {
           question: "What is Vela?",
           answer:
-            "Voice note → professional quote → send by WhatsApp or email (SMS coming).",
+            "Vela is a voice-to-quote app for electricians, plumbers and handymen: you record a voice note on site, and Vela turns it into a professional quote you can send by WhatsApp or email. SMS is coming.",
         },
         {
           question: "Who’s it for?",
