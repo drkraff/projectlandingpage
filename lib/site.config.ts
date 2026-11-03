@@ -105,7 +105,7 @@ const siteConfig: SiteConfig = {
         },
         {
           icon: "send",
-          title: "Send: text, WhatsApp or email it to the customer",
+          title: "Send: WhatsApp or email it to the customer (SMS coming)",
           description: "WhatsApp or email (SMS coming) — quote in their hand same visit.",
         },
       ],
