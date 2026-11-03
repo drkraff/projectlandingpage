@@ -6,18 +6,21 @@ const legalDocuments = {
     title: "Privacy Policy",
     description:
       "How Vela collects, uses and protects your data. The only personal data this waitlist site collects is the email address you submit.",
+    lastModified: "2026-10-27",
   },
   terms: {
     path: "/terms",
     title: "Terms of Service",
     description:
       "The terms for using the Vela website and joining the Vela waitlist. The site is a pre-MVP waitlist, and joining is email-only.",
+    lastModified: "2026-10-27",
   },
   cookies: {
     path: "/cookies",
     title: "Cookie Policy",
     description:
       "Which cookies Vela uses, why, and how to change your choice. Strictly necessary cookies and optional analytics. Clear local storage to change your choice.",
+    lastModified: "2026-10-27",
   },
 } as const
 
@@ -75,6 +78,7 @@ export function sitemapEntries({ origin, tradePath }: { origin: string; tradePat
     },
     ...Object.values(legalDocuments).map((document) => ({
       url: origin + document.path,
+      lastModified: document.lastModified,
       changeFrequency: "yearly" as const,
       priority: 0.3,
     })),

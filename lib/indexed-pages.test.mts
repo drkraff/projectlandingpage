@@ -89,27 +89,32 @@ describe("sitemapEntries", () => {
       },
       {
         url: "https://www.velaquote.com/privacy",
+        lastModified: "2026-10-27",
         changeFrequency: "yearly",
         priority: 0.3,
       },
       {
         url: "https://www.velaquote.com/terms",
+        lastModified: "2026-10-27",
         changeFrequency: "yearly",
         priority: 0.3,
       },
       {
         url: "https://www.velaquote.com/cookies",
+        lastModified: "2026-10-27",
         changeFrequency: "yearly",
         priority: 0.3,
       },
     ])
-    assert.equal(typeof entries[0].lastModified, "string")
+    for (const entry of entries) {
+      assert.equal(typeof entry.lastModified, "string")
+      assert.equal(entry.lastModified instanceof Date, false)
+    }
     assert.equal(entries[0].lastModified, "2026-10-24")
     assert.equal(entries[1].lastModified, "2026-10-24")
-    assert.equal(entries[0].lastModified instanceof Date, false)
-    assert.equal(entries[2].lastModified, undefined)
-    assert.equal(entries[3].lastModified, undefined)
-    assert.equal(entries[4].lastModified, undefined)
+    assert.equal(entries[2].lastModified, "2026-10-27")
+    assert.equal(entries[3].lastModified, "2026-10-27")
+    assert.equal(entries[4].lastModified, "2026-10-27")
   })
 })
 
