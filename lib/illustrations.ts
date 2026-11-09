@@ -21,8 +21,8 @@ export const howItWorksPanels = [
     src: "/illustrations/how-it-works-send.webp",
     width: 2048,
     height: 1536,
-    caption: "Send: text, WhatsApp or email it to the customer",
-    alt: "Send: text, WhatsApp or email it to the customer",
+    caption: "Send: WhatsApp or email it to the customer (SMS coming)",
+    alt: "Send: WhatsApp or email it to the customer (SMS coming)",
   },
 ] as const
 

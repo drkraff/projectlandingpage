@@ -13,7 +13,7 @@ const lead =
   "Vela is a voice-to-quote app for electricians, plumbers and handymen: you describe the job in a voice note on site, and Vela turns it into a professional quote you can send by WhatsApp or email before you leave."
 
 const homeDescription =
-  "Talk the job on site and Vela turns your voice note into a clean quote you can share by WhatsApp or email before you leave. Join the early-access waitlist."
+  "Talk the job on site and Vela turns your voice note into a clean quote you can share by WhatsApp or email before you leave. Join the pre-launch waitlist."
 
 const privacyDescription =
   "How Vela collects, uses and protects your data. The only personal data this waitlist site collects is the email address you submit."
@@ -42,6 +42,7 @@ describe("indexed page copy", () => {
       "Vela is pre-launch. Join the waitlist and we’ll email you when it’s ready to try.",
     )
     assert.equal(siteConfig.seo.description, homeDescription)
+    assert.ok(homeDescription.length <= 160)
   })
 
   it("describes the legal pages without the home sentence", () => {
@@ -88,27 +89,32 @@ describe("sitemapEntries", () => {
       },
       {
         url: "https://www.velaquote.com/privacy",
+        lastModified: "2026-10-27",
         changeFrequency: "yearly",
         priority: 0.3,
       },
       {
         url: "https://www.velaquote.com/terms",
+        lastModified: "2026-10-27",
         changeFrequency: "yearly",
         priority: 0.3,
       },
       {
         url: "https://www.velaquote.com/cookies",
+        lastModified: "2026-10-27",
         changeFrequency: "yearly",
         priority: 0.3,
       },
     ])
-    assert.equal(typeof entries[0].lastModified, "string")
+    for (const entry of entries) {
+      assert.equal(typeof entry.lastModified, "string")
+      assert.equal(entry.lastModified instanceof Date, false)
+    }
     assert.equal(entries[0].lastModified, "2026-10-24")
     assert.equal(entries[1].lastModified, "2026-10-24")
-    assert.equal(entries[0].lastModified instanceof Date, false)
-    assert.equal(entries[2].lastModified, undefined)
-    assert.equal(entries[3].lastModified, undefined)
-    assert.equal(entries[4].lastModified, undefined)
+    assert.equal(entries[2].lastModified, "2026-10-27")
+    assert.equal(entries[3].lastModified, "2026-10-27")
+    assert.equal(entries[4].lastModified, "2026-10-27")
   })
 })
 

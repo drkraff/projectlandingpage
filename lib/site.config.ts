@@ -9,7 +9,7 @@ const siteConfig: SiteConfig = {
     title: "Voice to Quote App for Contractors | Vela",
     titleTemplate: "%s | Vela",
     description:
-      "Talk the job on site and Vela turns your voice note into a clean quote you can share by WhatsApp or email before you leave. Join the early-access waitlist.",
+      "Talk the job on site and Vela turns your voice note into a clean quote you can share by WhatsApp or email before you leave. Join the pre-launch waitlist.",
     // Absolute so og:image / twitter:image do not depend on the request host.
     ogImage: "https://www.velaquote.com/og-image.png",
     // Apex velaquote.com redirects here.
@@ -105,7 +105,7 @@ const siteConfig: SiteConfig = {
         },
         {
           icon: "send",
-          title: "Send: text, WhatsApp or email it to the customer",
+          title: "Send: WhatsApp or email it to the customer (SMS coming)",
           description: "WhatsApp or email (SMS coming) — quote in their hand same visit.",
         },
       ],
@@ -133,7 +133,7 @@ const siteConfig: SiteConfig = {
         {
           question: "What is Vela?",
           answer:
-            "Voice note → professional quote → send by WhatsApp or email (SMS coming).",
+            "Vela is a voice-to-quote app for electricians, plumbers and handymen: you record a voice note on site, and Vela turns it into a professional quote you can send by WhatsApp or email. SMS is coming.",
         },
         {
           question: "Who’s it for?",
