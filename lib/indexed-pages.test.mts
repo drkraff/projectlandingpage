@@ -68,6 +68,21 @@ describe("indexed page copy", () => {
   })
 })
 
+describe("home waitlist copy", () => {
+  it("states the pre-launch badge, subheadline, and FAQ answers", () => {
+    const faq = siteConfig.sections.faq
+    assert.equal(siteConfig.sections.hero.badge, "Pre-launch waitlist")
+    assert.equal(faq.subheadline, "Pre-launch. No spin.")
+    const live = faq.items.find((item) => item.question === "Is it live?")
+    const cost = faq.items.find((item) => item.question === "What does it cost?")
+    assert.equal(
+      live?.answer,
+      "Not yet. Vela is pre-launch. Join the waitlist and Vela will email you when it’s ready to try.",
+    )
+    assert.equal(cost?.answer, "Pricing isn’t set yet. Waitlist members hear first.")
+  })
+})
+
 describe("sitemapEntries", () => {
   it("lists home, the trade page, then the three legal paths", () => {
     const entries = sitemapEntries({
@@ -77,13 +92,13 @@ describe("sitemapEntries", () => {
     assert.deepEqual(entries, [
       {
         url: "https://www.velaquote.com",
-        lastModified: "2026-10-24",
+        lastModified: "2026-11-10",
         changeFrequency: "weekly",
         priority: 1,
       },
       {
         url: "https://www.velaquote.com/voice-to-quote-electricians",
-        lastModified: "2026-10-24",
+        lastModified: "2026-11-10",
         changeFrequency: "weekly",
         priority: 0.8,
       },
@@ -110,8 +125,8 @@ describe("sitemapEntries", () => {
       assert.equal(typeof entry.lastModified, "string")
       assert.equal(entry.lastModified instanceof Date, false)
     }
-    assert.equal(entries[0].lastModified, "2026-10-24")
-    assert.equal(entries[1].lastModified, "2026-10-24")
+    assert.equal(entries[0].lastModified, "2026-11-10")
+    assert.equal(entries[1].lastModified, "2026-11-10")
     assert.equal(entries[2].lastModified, "2026-10-27")
     assert.equal(entries[3].lastModified, "2026-10-27")
     assert.equal(entries[4].lastModified, "2026-10-27")

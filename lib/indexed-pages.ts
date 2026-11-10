@@ -24,7 +24,7 @@ const legalDocuments = {
   },
 } as const
 
-const contentRevisedOn = "2026-10-24"
+const contentRevisedOn = "2026-11-10"
 
 export function legalDocument(id: "privacy" | "terms" | "cookies") {
   return legalDocuments[id]

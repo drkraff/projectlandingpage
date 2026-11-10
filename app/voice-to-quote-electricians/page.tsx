@@ -51,7 +51,7 @@ export default function ElectriciansPage() {
           <div className="mx-auto flex max-w-5xl flex-col">
             <div className="animate-fade-up mb-6">
               <span className="inline-flex rounded-full border border-border bg-card px-3 py-1 text-sm font-medium text-muted-foreground">
-                Pre-MVP waitlist
+                Pre-launch waitlist
               </span>
             </div>
             <div className="animate-fade-up mb-10" style={{ animationDelay: "40ms" }}>

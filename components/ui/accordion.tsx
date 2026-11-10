@@ -63,16 +63,23 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="overflow-hidden text-sm data-open:animate-accordion-down data-closed:animate-accordion-up"
+      className="group/accordion-content text-sm"
       {...props}
+      forceMount
     >
-      <div
-        className={cn(
-          "h-(--radix-accordion-content-height) pt-0 pb-2.5 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
-          className
-        )}
-      >
-        {children}
+      {/* Radix sets transition-duration: 0s on this node, so the row
+          transition lives on the child, which it does not touch. */}
+      <div className="grid transition-[grid-template-rows] duration-200 ease-out group-data-[state=open]/accordion-content:grid-rows-[1fr] group-data-[state=closed]/accordion-content:grid-rows-[0fr]">
+        <div className="min-h-0 overflow-hidden">
+          <div
+            className={cn(
+              "pt-0 pb-2.5 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
+              className
+            )}
+          >
+            {children}
+          </div>
+        </div>
       </div>
     </AccordionPrimitive.Content>
   )
