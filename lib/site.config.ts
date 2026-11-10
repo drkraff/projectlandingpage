@@ -62,7 +62,7 @@ const siteConfig: SiteConfig = {
     // -----------------------------------------------------------------------
     hero: {
       enabled: true,
-      badge: "Pre-MVP waitlist",
+      badge: "Pre-launch waitlist",
       headline: "Talk the job. Send the quote before you leave.",
       lead:
         "Vela is a voice-to-quote app for electricians, plumbers and handymen: record a voice note on site and get a professional quote to send by WhatsApp or email.",
@@ -128,7 +128,7 @@ const siteConfig: SiteConfig = {
     faq: {
       enabled: true,
       headline: "Straight answers",
-      subheadline: "Pre-MVP. No spin.",
+      subheadline: "Pre-launch. No spin.",
       items: [
         {
           question: "What is Vela?",
@@ -142,11 +142,12 @@ const siteConfig: SiteConfig = {
         },
         {
           question: "Is it live?",
-          answer: "Not yet — this is a pre-MVP waitlist.",
+          answer:
+            "Not yet. Vela is pre-launch. Join the waitlist and Vela will email you when it’s ready to try.",
         },
         {
           question: "What does it cost?",
-          answer: "Undecided. Early access hears first.",
+          answer: "Pricing isn’t set yet. Waitlist members hear first.",
         },
       ],
     },

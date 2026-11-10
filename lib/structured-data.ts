@@ -34,7 +34,7 @@ export function homeJsonLd() {
         applicationCategory: "BusinessApplication",
         operatingSystem: "iOS, Android",
         description:
-          "Turn a voice note from the job site into a clean contractor quote and share it by WhatsApp or email. Pre-MVP waitlist.",
+          "Turn a voice note from the job site into a clean contractor quote and share it by WhatsApp or email. Pre-launch waitlist.",
         publisher: { "@id": `${origin}/#org` },
         url: origin,
       },
